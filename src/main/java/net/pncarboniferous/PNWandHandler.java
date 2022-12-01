@@ -62,8 +62,5 @@ public class PNWandHandler {
                 }
             }
         }
-        event.setCancellationResult(EnumActionResult.FAIL);
-        event.setCanceled(true);
-        return;
     }
 }

@@ -28,6 +28,10 @@ public class GenLayerCarboniferousBeach extends GenLayer
     public  int CARBONIFEROUS_HILLS_CENTRE_ID =  Biome.getIdForBiome(CARBONIFEROUS_HILLS_CENTRE);
     public Biome CARBONIFEROUS_MARSH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_marsh"));
     public int CARBONIFEROUS_MARSH_ID =  Biome.getIdForBiome(CARBONIFEROUS_MARSH);
+    public  Biome CARBONIFEROUS_ESTUARY = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_estuary"));
+    public  int CARBONIFEROUS_ESTUARY_ID =  Biome.getIdForBiome(CARBONIFEROUS_ESTUARY);
+    public  Biome CARBONIFEROUS_ESTUARY_HELPER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_estuary_helper"));
+    public  int CARBONIFEROUS_ESTUARY_HELPER_ID =  Biome.getIdForBiome(CARBONIFEROUS_ESTUARY_HELPER);
 
 
     public GenLayerCarboniferousBeach(long seed, GenLayer genLayer)
@@ -47,7 +51,6 @@ public class GenLayerCarboniferousBeach extends GenLayer
             {
                 this.initChunkSeed((long)(j + areaX), (long)(i + areaY));
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
-                Biome biome = Biome.getBiome(k);
 
                 if (k != CARBONIFEROUS_HILLS_ID
                         && k != CARBONIFEROUS_ICE_EDGE_ID
@@ -57,6 +60,8 @@ public class GenLayerCarboniferousBeach extends GenLayer
                         && k != CARBONIFEROUS_HILLS_EDGE_ID
                         && k != CARBONIFEROUS_HILLS_CENTRE_ID
                         && k != CARBONIFEROUS_MARSH_ID
+                        && k != CARBONIFEROUS_ESTUARY_ID
+                        && k != CARBONIFEROUS_ESTUARY_HELPER_ID
                 )
                 {
                     if (!isOcean(k))

@@ -41,7 +41,7 @@ public class BiomeCarboniferousOceanCliff extends ElementsLepidodendronMod.ModEl
 
 	static class BiomeGenCustom extends BiomeCarboniferous {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Carboniferous Ocean Cliff").setRainfall(0.5F).setBaseHeight(-0.50F).setHeightVariation(0.01F).setWaterColor(13038245));
+			super(new BiomeProperties("Carboniferous Ocean Escarpment").setRainfall(0.5F).setBaseHeight(-0.50F).setHeightVariation(0.01F).setWaterColor(13038245));
 			setRegistryName("lepidodendron:carboniferous_ocean_cliff");
 			this.topBlock = BlockCoarseSandyDirt.block.getDefaultState();
 			this.fillerBlock = Blocks.SAND.getStateFromMeta(0);

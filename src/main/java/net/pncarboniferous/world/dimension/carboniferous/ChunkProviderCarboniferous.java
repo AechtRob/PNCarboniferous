@@ -5,6 +5,7 @@ import net.lepidodendron.util.EnumBiomeTypeCarboniferous;
 import net.lepidodendron.world.biome.ChunkGenSpawner;
 import net.lepidodendron.world.biome.carboniferous.*;
 import net.lepidodendron.world.gen.WorldGenCarboniferousLakes;
+import net.lepidodendron.world.gen.WorldGenCarboniferousLakesFlat;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.BlockSand;
 import net.minecraft.block.material.Material;
@@ -28,6 +29,8 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
     public static final IBlockState STONE = Blocks.STONE.getStateFromMeta(0);
     public static final IBlockState STONE2 = Blocks.STONE.getStateFromMeta(0);
     //public static final IBlockState FLUID = Blocks.FLOWING_WATER.getDefaultState();
+
+    public static final IBlockState PEAT = BlockPeat.block.getDefaultState();
 
     public static final IBlockState FLUID = Blocks.WATER.getDefaultState();
 
@@ -57,7 +60,7 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
         caveGenerator = new MapGenCaves() {
             @Override
             protected boolean canReplaceBlock(IBlockState a, IBlockState b) {
-                if (a.getBlock() == STONE.getBlock())
+                if (a.getBlock() == STONE.getBlock() || a.getBlock() == BlockPeat.block.getDefaultState().getBlock())
                     return true;
                 return super.canReplaceBlock(a, b);
             }
@@ -69,7 +72,7 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
                 if (biome == BiomeCarboniferousBeach.biome) {return;}
                 IBlockState state = data.getBlockState(x, y, z);
                 if (state.getBlock() == STONE.getBlock() || state.getBlock() == biome.topBlock.getBlock()
-                        || state.getBlock() == biome.fillerBlock.getBlock()) {
+                        || state.getBlock() == biome.fillerBlock.getBlock() || state.getBlock() == BlockPeat.block.getDefaultState().getBlock()) {
                     if (y - 1 < 10) {
                         data.setBlockState(x, y, z, FLOWING_LAVA);
                     } else {
@@ -126,13 +129,24 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
         long l = this.random.nextLong() / 2 * 2 + 1;
         this.random.setSeed((long) x * k + (long) z * l ^ this.world.getSeed());
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.random, x, z, false);
-        if (this.random.nextInt(4) == 0 && biome != BiomeCarboniferousMarsh.biome && biome != BiomeCarboniferousIce.biome && biome != BiomeCarboniferousIceLakes.biome && biome != BiomeCarboniferousIceSpikes.biome && biome != BiomeCarboniferousIceEdge.biome && biome != BiomeCarboniferousBeach.biome && biome != BiomeCarboniferousOceanShore.biome && biome != BiomeCarboniferousOceanCliff.biome)
+        if (this.random.nextInt(4) == 0 && biome != BiomeCarboniferousMarsh.biome && biome != BiomeCarboniferousIce.biome && biome != BiomeCarboniferousIceLakes.biome && biome != BiomeCarboniferousIceSpikes.biome && biome != BiomeCarboniferousIceEdge.biome && biome != BiomeCarboniferousBeach.biome && biome != BiomeCarboniferousOceanShore.biome && biome != BiomeCarboniferousOceanCliff.biome&& biome != BiomeCarboniferousEstuary.biome)
             if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
                     net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
                 int i1 = this.random.nextInt(16) + 8;
                 int j1 = this.random.nextInt(256);
                 int k1 = this.random.nextInt(16) + 8;
                 (new WorldGenCarboniferousLakes(FLUID.getBlock())).generate(this.world, this.random, blockpos.add(i1, j1, k1));
+            }
+
+        if (biome == BiomeCarboniferousEstuary.biome) //Many extra lakes in the estuary
+            if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
+                    net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
+                for (int lake = 0; lake < 12; ++lake) {
+                    int i1 = this.random.nextInt(16) + 8;
+                    int j1 = this.random.nextInt(256);
+                    int k1 = this.random.nextInt(16) + 8;
+                    (new WorldGenCarboniferousLakesFlat(FLUID.getBlock())).generate(this.world, this.random, blockpos.add(i1, j1, k1));
+                }
             }
 
         net.minecraftforge.common.MinecraftForge.EVENT_BUS
@@ -300,6 +314,14 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
                     double d2 = this.limitRegMin[i] / (double) 512;
                     double d3 = this.limitRegMax[i] / (double) 512;
                     double d4 = (this.noiseRegMain[i] / 10.0D + 1.0D) / 2.0D;
+
+                    if (biome == BiomeCarboniferousEstuary.biome) {
+                        //Flatten these out somewhat:
+                        d4 = 1.0F;
+                        d2 = d4;
+                        d3 = d4;
+                    }
+
                     double d5 = MathHelper.clampedLerp(d2, d3, d4) - d1;
                     if (l1 > 29) {
                         double d6 = (double) ((float) (l1 - 29) / 3.0F);
@@ -386,6 +408,15 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
                                 iblockstate = FLUID;
                             } else {
                                 iblockstate = FLUID;
+                            }
+                        }
+
+                        //Give the estuary a swampy upper set:
+                        if (biome == BiomeCarboniferousEstuary.biome
+                                ||  biome == BiomeCarboniferousEstuaryHelper.biome
+                        ) {
+                            if (j1 >= i + 1) {
+                                iblockstate = BlockPrehistoricGroundLush.block.getDefaultState();
                             }
                         }
 
