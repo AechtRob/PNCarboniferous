@@ -96,6 +96,7 @@ public class BiomeCarboniferousSwamp extends ElementsLepidodendronMod.ModElement
 		protected static final WorldGenCordaites CORDAITES = new WorldGenCordaites(false);
 		protected static final WorldGenBothrodendronTree BOTHRODENDRON_TREE = new WorldGenBothrodendronTree(false);
 		protected static final WorldGenDiaphorodendronTree DIAPHORODENDRON_TREE = new WorldGenDiaphorodendronTree(false);
+		protected static final WorldGenLepidophloiosTree LEPIDOPHLOIOS_TREE = new WorldGenLepidophloiosTree(false);
 		protected static final WorldGenValmeyerodendronTree VALMEYERODENDRON_TREE = new WorldGenValmeyerodendronTree(false);
 		protected static final WorldGenCalamites CALAMITES = new WorldGenCalamites(false);
 		protected static final WorldGenMacroneuropterisTree MACRONEUROPTERIS_TREE = new WorldGenMacroneuropterisTree(false);
@@ -128,7 +129,7 @@ public class BiomeCarboniferousSwamp extends ElementsLepidodendronMod.ModElement
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
-	    	int selector = rand.nextInt(10);
+	    	int selector = rand.nextInt(11);
 	    	switch (selector) {
 				case 0:
 					return LEPIDODENDRON_TREE;
@@ -150,6 +151,8 @@ public class BiomeCarboniferousSwamp extends ElementsLepidodendronMod.ModElement
 					return SIGILLARIA_TREE;
 				case 9:
 					return LEPIDODENDRON_TREE;
+				case 10:
+					return LEPIDOPHLOIOS_TREE;
 			}
 	    	return LEPIDODENDRON_TREE;
 	    }

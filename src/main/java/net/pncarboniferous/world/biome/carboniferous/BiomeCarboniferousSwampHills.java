@@ -96,6 +96,7 @@ public class BiomeCarboniferousSwampHills extends ElementsLepidodendronMod.ModEl
 		protected static final WorldGenSigillaria SIGILLARIA_TREE = new WorldGenSigillaria(false);
 		protected static final WorldGenBothrodendronTree BOTHRODENDRON_TREE = new WorldGenBothrodendronTree(false);
 		protected static final WorldGenDiaphorodendronTree DIAPHORODENDRON_TREE = new WorldGenDiaphorodendronTree(false);
+		protected static final WorldGenLepidophloiosTree LEPIDOPHLOIOS_TREE = new WorldGenLepidophloiosTree(false);
 		protected static final WorldGenValmeyerodendronTree VALMEYERODENDRON_TREE = new WorldGenValmeyerodendronTree(false);
 		protected static final WorldGenCordaites CORDAITES_TREE = new WorldGenCordaites(false);
 		protected static final WorldGenPuddles PUDDLES_GENERATOR = new WorldGenPuddles();
@@ -136,7 +137,7 @@ public class BiomeCarboniferousSwampHills extends ElementsLepidodendronMod.ModEl
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
-	    	int selector = rand.nextInt(7);
+	    	int selector = rand.nextInt(8);
 			switch (selector) {
 				case 0 :
 					return LEPIDODENDRON_TREE;
@@ -152,6 +153,8 @@ public class BiomeCarboniferousSwampHills extends ElementsLepidodendronMod.ModEl
 					return CALAMITES;
 				case 6 :
 					return MACRONEUROPTERIS_TREE;
+				case 7 :
+					return LEPIDOPHLOIOS_TREE;
 			}
 	    	return CORDAITES_TREE;
 	    }

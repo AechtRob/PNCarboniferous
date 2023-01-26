@@ -28,7 +28,7 @@ import java.util.function.Supplier;
 public class PNCarboniferousMod {
     public static final String MODID = "pncarboniferous";
     public static final String NAME = "Prehistoric Nature Carboniferous Dimension";
-    public static final String VERSION = "1.01";
+    public static final String VERSION = "2.0";
     public static final SimpleNetworkWrapper PACKET_HANDLER = NetworkRegistry.INSTANCE.newSimpleChannel("pncarboniferous:a");
     @SidedProxy(clientSide = "net.pncarboniferous.ClientProxyPNCarboniferousMod", serverSide = "net.pncarboniferous.ServerProxyPNCarboniferousMod")
     public static IProxyPNCarboniferousMod proxy;

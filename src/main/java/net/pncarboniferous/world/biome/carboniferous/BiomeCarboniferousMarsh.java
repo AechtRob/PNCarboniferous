@@ -97,6 +97,7 @@ public class BiomeCarboniferousMarsh extends ElementsLepidodendronMod.ModElement
 		protected static final WorldGenCordaites CORDAITES = new WorldGenCordaites(false);
 		protected static final WorldGenBothrodendronTree BOTHRODENDRON_TREE = new WorldGenBothrodendronTree(false);
 		protected static final WorldGenDiaphorodendronTree DIAPHORODENDRON_TREE = new WorldGenDiaphorodendronTree(false);
+		protected static final WorldGenLepidophloiosTree LEPIDOPHLOIOS_TREE = new WorldGenLepidophloiosTree(false);
 		protected static final WorldGenCalamites CALAMITES = new WorldGenCalamites(false);
 
 		protected static final WorldGenPuddles PUDDLES_GENERATOR = new WorldGenPuddles();
@@ -135,7 +136,7 @@ public class BiomeCarboniferousMarsh extends ElementsLepidodendronMod.ModElement
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 		{
 			if (rand.nextInt(6) == 0) {
-				int selector = rand.nextInt(4);
+				int selector = rand.nextInt(5);
 				switch (selector) {
 					case 0:
 					default:
@@ -146,6 +147,8 @@ public class BiomeCarboniferousMarsh extends ElementsLepidodendronMod.ModElement
 						return BOTHRODENDRON_TREE;
 					case 3:
 						return DIAPHORODENDRON_TREE;
+					case 4:
+						return LEPIDOPHLOIOS_TREE;
 				}
 			}
 			else if (rand.nextInt(3) == 0) {
