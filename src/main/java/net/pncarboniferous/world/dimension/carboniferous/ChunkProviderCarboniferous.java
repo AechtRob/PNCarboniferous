@@ -420,6 +420,15 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
                             }
                         }
 
+                        //Break up the Savanna:
+                        if (biome == BiomeCarboniferousColdSavanna.biome
+                                ||  biome == BiomeCarboniferousCreekColdSavanna.biome
+                        ) {
+                            if (rand.nextInt(2) == 0) {
+                                iblockstate = Blocks.GRAVEL.getDefaultState();
+                            }
+                        }
+
                         //For the Hills biome, make mountains drier:
                         if (biome == BiomeCarboniferousHills.biome
                         ) {
@@ -445,7 +454,7 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
                             }
                         }
 
-                        //For the Higher Hills biomevary the ground a little:
+                        //For the Higher Hills biome vary the ground a little:
                         if (biome == BiomeCarboniferousHillsCentre.biome
                         ) {
                             //Add some extra dirt for things to grow in (the base is otherwise gravel):

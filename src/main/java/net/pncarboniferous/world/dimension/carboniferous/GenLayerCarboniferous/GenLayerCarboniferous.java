@@ -53,8 +53,10 @@ public class GenLayerCarboniferous {
         biomes = new GenLayerCarboniferousCliff(1080L, biomes);
         biomes = new GenLayerSmooth(705L, biomes);
         biomes = new GenLayerFuzzyZoom(1001L, biomes);
+        biomes = new GenLayerCarboniferousRiverBorder(325L, biomes);
         biomes = new GenLayerSmooth(706L, biomes);
         biomes = new GenLayerFuzzyZoom(1002L, biomes);
+        biomes = new GenLayerCarboniferousRiverBorder(326L, biomes);
         biomes = new GenLayerZoom(1006L, biomes);
 
         //Build and superimpose creeks:

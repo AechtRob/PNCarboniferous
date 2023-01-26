@@ -24,6 +24,8 @@ public class GenLayerCarboniferousEstuary1 extends GenLayer
     public  int CARBONIFEROUS_HILLS_EDGE_ID =  Biome.getIdForBiome(CARBONIFEROUS_HILLS_EDGE);
     public  Biome CARBONIFEROUS_HILLS_CENTRE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_hills_high"));
     public  int CARBONIFEROUS_HILLS_CENTRE_ID =  Biome.getIdForBiome(CARBONIFEROUS_HILLS_CENTRE);
+    public Biome CARBONIFEROUS_SAVANNA = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_cold_savanna"));
+    public int CARBONIFEROUS_SAVANNA_ID =  Biome.getIdForBiome(CARBONIFEROUS_SAVANNA);
 
     public  Biome CARBONIFEROUS_ESTUARY = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_estuary_helper"));
     public  int CARBONIFEROUS_ESTUARY_ID =  Biome.getIdForBiome(CARBONIFEROUS_ESTUARY);
@@ -53,6 +55,7 @@ public class GenLayerCarboniferousEstuary1 extends GenLayer
                         && k != CARBONIFEROUS_HILLS_ID
                         && k != CARBONIFEROUS_HILLS_EDGE_ID
                         && k != CARBONIFEROUS_HILLS_CENTRE_ID
+                        && k != CARBONIFEROUS_SAVANNA_ID
                 )
                 {
                     if (!isOcean(k))

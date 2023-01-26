@@ -20,6 +20,8 @@ public class GenLayerCarboniferousShallowOcean extends GenLayer
     public  int CARBONIFEROUS_BEACH_ID =  Biome.getIdForBiome(CARBONIFEROUS_BEACH);
     public Biome CARBONIFEROUS_MARSH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_marsh"));
     public int CARBONIFEROUS_MARSH_ID =  Biome.getIdForBiome(CARBONIFEROUS_MARSH);
+    public Biome CARBONIFEROUS_SAVANNA = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_cold_savanna"));
+    public int CARBONIFEROUS_SAVANNA_ID =  Biome.getIdForBiome(CARBONIFEROUS_SAVANNA);
 
 
     public GenLayerCarboniferousShallowOcean(long seed, GenLayer genLayer)
@@ -56,10 +58,10 @@ public class GenLayerCarboniferousShallowOcean extends GenLayer
                     int j2 = aint[j1 + 1 - 1 + (i1 + 1) * k];
                     int k2 = aint[j1 + 1 + (i1 + 1 + 1) * k];
                     boolean flag = (
-                        (l1 == CARBONIFEROUS_MARSH_ID || l1 == CARBONIFEROUS_SWAMP_ID || l1 == CARBONIFEROUS_SWAMP_HILLS_ID || l1 == CARBONIFEROUS_BEACH_ID)
-                        || (i2 == CARBONIFEROUS_MARSH_ID || i2 == CARBONIFEROUS_SWAMP_ID || i2 == CARBONIFEROUS_SWAMP_HILLS_ID || i2 == CARBONIFEROUS_BEACH_ID)
-                        || (j2 == CARBONIFEROUS_MARSH_ID || j2 == CARBONIFEROUS_SWAMP_ID || j2 == CARBONIFEROUS_SWAMP_HILLS_ID || j2 == CARBONIFEROUS_BEACH_ID)
-                        || (k2 == CARBONIFEROUS_MARSH_ID || k2 == CARBONIFEROUS_SWAMP_ID || k2 == CARBONIFEROUS_SWAMP_HILLS_ID || k2 == CARBONIFEROUS_BEACH_ID)
+                        (l1 == CARBONIFEROUS_MARSH_ID || l1 == CARBONIFEROUS_SWAMP_ID || l1 == CARBONIFEROUS_SWAMP_HILLS_ID || l1 == CARBONIFEROUS_BEACH_ID || l1 == CARBONIFEROUS_SAVANNA_ID)
+                        || (i2 == CARBONIFEROUS_MARSH_ID || i2 == CARBONIFEROUS_SWAMP_ID || i2 == CARBONIFEROUS_SWAMP_HILLS_ID || i2 == CARBONIFEROUS_BEACH_ID || i2 == CARBONIFEROUS_SAVANNA_ID)
+                        || (j2 == CARBONIFEROUS_MARSH_ID || j2 == CARBONIFEROUS_SWAMP_ID || j2 == CARBONIFEROUS_SWAMP_HILLS_ID || j2 == CARBONIFEROUS_BEACH_ID || j2 == CARBONIFEROUS_SAVANNA_ID)
+                        || (k2 == CARBONIFEROUS_MARSH_ID || k2 == CARBONIFEROUS_SWAMP_ID || k2 == CARBONIFEROUS_SWAMP_HILLS_ID || k2 == CARBONIFEROUS_BEACH_ID || k2 == CARBONIFEROUS_SAVANNA_ID)
                     );
                     if (flag)
                     {
