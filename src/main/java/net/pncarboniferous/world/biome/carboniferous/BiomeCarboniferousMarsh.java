@@ -130,6 +130,8 @@ public class BiomeCarboniferousMarsh extends ElementsLepidodendronMod.ModElement
 		protected static final WorldGenTreeLog BOTHRODENDRON_LOG_GENERATOR = new WorldGenTreeLog(BlockBothrodendronLog.block);
 		protected static final WorldGenSlimyAlgae SLIMY_GENERATOR = new WorldGenSlimyAlgae();
 
+		protected static final WorldGenSublepidodendron SUBLEPIDODENDRON_GENERATOR = new WorldGenSublepidodendron();
+
 		protected static final WorldGenMud MUD_GENERATOR = new WorldGenMud();
 		public static final PropertyEnum<BlockDoublePlant.EnumPlantType> VARIANT = PropertyEnum.<BlockDoublePlant.EnumPlantType>create("variant", BlockDoublePlant.EnumPlantType.class);
 
@@ -300,6 +302,15 @@ public class BiomeCarboniferousMarsh extends ElementsLepidodendronMod.ModElement
 					CORDAITES_LOG_WATER_GENERATOR.generate(worldIn, rand, blockpos);
 				}
 			}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 6; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					SUBLEPIDODENDRON_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 4; ++i)

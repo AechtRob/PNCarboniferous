@@ -120,6 +120,7 @@ public class BiomeCarboniferousHillsEdge extends ElementsLepidodendronMod.ModEle
 		protected static final WorldGenFern FERN_GENERATOR = new WorldGenFern();
 		public static final PropertyEnum<BlockDoublePlant.EnumPlantType> VARIANT = PropertyEnum.<BlockDoublePlant.EnumPlantType>create("variant", BlockDoublePlant.EnumPlantType.class);
 		protected static final WorldGenFungiSimple SIMPLE_FUNGI_GENERATOR = new WorldGenFungiSimple();
+		protected static final WorldGenClubmoss CLUBMOSS_GENERATOR = new WorldGenClubmoss();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -318,6 +319,14 @@ public class BiomeCarboniferousHillsEdge extends ElementsLepidodendronMod.ModEle
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					SIMPLE_FUNGI_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 28; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					CLUBMOSS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
 
