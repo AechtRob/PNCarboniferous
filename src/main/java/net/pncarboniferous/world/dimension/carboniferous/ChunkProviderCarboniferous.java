@@ -411,6 +411,15 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
                             }
                         }
 
+                        //Add layer of peat under the surface:
+                        if (((BiomeCarboniferous)biome).getBiomeType() == EnumBiomeTypeCarboniferous.Swamp
+                                ||  ((BiomeCarboniferous)biome).getBiomeType() == EnumBiomeTypeCarboniferous.Marsh
+                        ) {
+                            if (j1 < i + 4 && rand.nextInt(3) != 0) {
+                                iblockstate1 = BlockPeat.block.getDefaultState();
+                            }
+                        }
+
                         //Give the estuary a swampy upper set:
                         if (biome == BiomeCarboniferousEstuary.biome
                                 ||  biome == BiomeCarboniferousEstuaryHelper.biome
@@ -451,6 +460,29 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
                                         }
                                     }
                                 }
+                            }
+                        }
+
+                        if (biome == BiomeCarboniferousColdCordaitesWoodland.biome
+                        ) {
+                            //Add some extra stone:
+                            if (rand.nextInt(24) == 0) {
+                                iblockstate = Blocks.STONE.getStateFromMeta(0);
+                            }
+                            if (rand.nextInt(24) == 0) {
+                                iblockstate = Blocks.COBBLESTONE.getStateFromMeta(0);
+                            }
+                            if (rand.nextInt(24) == 0) {
+                                iblockstate = Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0);
+                            }
+                            if (rand.nextInt(24) == 0) {
+                                iblockstate1 = Blocks.STONE.getStateFromMeta(0);
+                            }
+                            if (rand.nextInt(24) == 0) {
+                                iblockstate1 = Blocks.COBBLESTONE.getStateFromMeta(0);
+                            }
+                            if (rand.nextInt(24) == 0) {
+                                iblockstate1 = Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0);
                             }
                         }
 

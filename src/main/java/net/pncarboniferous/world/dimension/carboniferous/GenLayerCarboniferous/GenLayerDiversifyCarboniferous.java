@@ -21,6 +21,8 @@ public class GenLayerDiversifyCarboniferous extends GenLayer {
     public int CARBONIFEROUS_ICE_ID =  Biome.getIdForBiome(CARBONIFEROUS_ICE);
     public Biome CARBONIFEROUS_SAVANNA = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_cold_savanna"));
     public int CARBONIFEROUS_SAVANNA_ID =  Biome.getIdForBiome(CARBONIFEROUS_SAVANNA);
+    public Biome CARBONIFEROUS_COLD_WOODLAND = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_cold_woodland"));
+    public int CARBONIFEROUS_COLD_WOODLAND_ID =  Biome.getIdForBiome(CARBONIFEROUS_COLD_WOODLAND);
 
     private final int SwampBiomes[] = new int[] {
         CARBONIFEROUS_SWAMP_ID,
@@ -29,9 +31,12 @@ public class GenLayerDiversifyCarboniferous extends GenLayer {
     };
 
     private final int ColdBiomes[] = new int[] {
-            CARBONIFEROUS_ICE_ID,
-            CARBONIFEROUS_ICE_ID,
-            CARBONIFEROUS_SAVANNA_ID,
+        CARBONIFEROUS_ICE_ID,
+        CARBONIFEROUS_ICE_ID,
+        CARBONIFEROUS_SAVANNA_ID,
+        CARBONIFEROUS_ICE_ID,
+        CARBONIFEROUS_ICE_ID,
+        CARBONIFEROUS_COLD_WOODLAND_ID
     };
 
     public GenLayerDiversifyCarboniferous(long seed, GenLayer genlayer) {

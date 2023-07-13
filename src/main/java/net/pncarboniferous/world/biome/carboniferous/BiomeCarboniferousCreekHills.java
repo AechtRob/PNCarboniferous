@@ -326,7 +326,7 @@ public class BiomeCarboniferousCreekHills extends ElementsLepidodendronMod.ModEl
 
 		@Override
 		public EnumBiomeTypeCarboniferous getBiomeType() {
-		return EnumBiomeTypeCarboniferous.Swamp;
+		return EnumBiomeTypeCarboniferous.Hills;
 	}
 
 	}
