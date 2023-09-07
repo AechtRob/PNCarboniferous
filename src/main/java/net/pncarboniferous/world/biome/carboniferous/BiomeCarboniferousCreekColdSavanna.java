@@ -67,13 +67,16 @@ public class BiomeCarboniferousCreekColdSavanna extends ElementsPNCarboniferousM
 		protected static final WorldGenIgneous IGNEOUS_GENERATOR = new WorldGenIgneous();
 		protected static final WorldGenBlackSandyDirt BLACK_SANDY_GENERATOR = new WorldGenBlackSandyDirt();
 		protected static final WorldGenSandyDirt SANDY_GENERATOR = new WorldGenSandyDirt();
-		protected static final WorldGenPrehistoricGround DIRT_GENERATOR = new WorldGenPrehistoricGround();
+		//protected static final WorldGenPrehistoricGround DIRT_GENERATOR = new WorldGenPrehistoricGround();
 		protected static final WorldGenSlimyAlgae SLIMY_GENERATOR = new WorldGenSlimyAlgae();
 		protected static final WorldGenSphenophyllales SPHENOPHYLLALES_GENERATOR = new WorldGenSphenophyllales();
 
 		protected static final WorldGenSandNearWater SAND_GENERATOR = new WorldGenSandNearWater();
 		protected static final WorldGenMud MUD_GENERATOR = new WorldGenMud();
 		protected static final WorldGenPuddles PUDDLES_GENERATOR = new WorldGenPuddles();
+
+		protected static final WorldGenBumbudendron BUMBUDENDRON_GENERATOR = new WorldGenBumbudendron();
+		protected static final WorldGenBotrychiopsis BOTRYCHIOPSIS_GENERATOR = new WorldGenBotrychiopsis();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -98,15 +101,6 @@ public class BiomeCarboniferousCreekColdSavanna extends ElementsPNCarboniferousM
 					IGNEOUS_GENERATOR.generate(worldIn, rand, blockpos);
 				}
 			}
-
-			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 32; ++i)
-				{
-					int j = rand.nextInt(16) + 8;
-					int k = rand.nextInt(16) + 8;
-					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					DIRT_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
-				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 64; ++i)
@@ -150,6 +144,24 @@ public class BiomeCarboniferousCreekColdSavanna extends ElementsPNCarboniferousM
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					SAND_GENERATOR.generate(worldIn, rand, worldIn.getTopSolidOrLiquidBlock(new BlockPos(pos.getX() + j, 0, pos.getZ() + k)).up());
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 64; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					BUMBUDENDRON_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 128; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					BOTRYCHIOPSIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))

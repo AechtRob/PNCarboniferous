@@ -37,7 +37,7 @@ public class BiomeCarboniferousColdCordaitesWoodland extends ElementsPNCarbonife
 
 	static class BiomeGenCustom extends BiomeCarboniferous {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Carboniferous Cold Cordaites Woodland").setRainfall(0.9F).setBaseHeight(0.08F).setHeightVariation(0.015F).setTemperature(0.25F));
+			super(new BiomeProperties("Carboniferous Cool Cordaites Woodland").setRainfall(0.9F).setBaseHeight(0.08F).setHeightVariation(0.015F).setTemperature(0.25F));
 			setRegistryName("lepidodendron:carboniferous_cold_woodland");
 			topBlock = Blocks.DIRT.getStateFromMeta(1);
 			fillerBlock = Blocks.DIRT.getStateFromMeta(1);

@@ -1,5 +1,6 @@
 package net.pncarboniferous.world.dimension.carboniferous;
 
+import net.lepidodendron.LepidodendronBespokeSpawner;
 import net.lepidodendron.block.*;
 import net.lepidodendron.util.EnumBiomeTypeCarboniferous;
 import net.lepidodendron.world.biome.ChunkGenSpawner;
@@ -159,7 +160,7 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
                 net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ANIMALS)) {
             //int i1 = this.random.nextInt(16) + 8; //This is in the spawner instead:
             //int k1 = this.random.nextInt(16) + 8; //This is in the spawner instead:
-            ChunkGenSpawner.executeProcedure(false, this.world, blockpos, this.random, null, true);
+            ChunkGenSpawner.executeProcedure(this.world, blockpos, this.random, null, true);
         }
 
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(false, this, this.world, this.random, x, z, false);
@@ -484,6 +485,12 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
                             if (rand.nextInt(24) == 0) {
                                 iblockstate1 = Blocks.MOSSY_COBBLESTONE.getStateFromMeta(0);
                             }
+                        }
+
+                        //Add dirt to Steppe
+                        if (biome == BiomeCarboniferousColdSavanna.biome && rand.nextInt(3) == 0
+                        ) {
+                            iblockstate = Blocks.DIRT.getStateFromMeta(1);
                         }
 
                         //For the Higher Hills biome vary the ground a little:
