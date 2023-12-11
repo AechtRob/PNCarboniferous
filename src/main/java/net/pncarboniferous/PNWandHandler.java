@@ -1,5 +1,6 @@
 package net.pncarboniferous;
 
+import net.lepidodendron.LepidodendronConfig;
 import net.lepidodendron.enchantments.Enchantments;
 import net.lepidodendron.item.ItemBoneWand;
 import net.minecraft.entity.player.EntityPlayer;
@@ -49,7 +50,9 @@ public class PNWandHandler {
                 return;
             }
             if (world.isAirBlock(pos1)) {
-
+                if (world.provider.getDimension() == LepidodendronConfig.dimCarboniferous) {
+                    return;
+                }
                 boolean portalSpawnCarboniferous = WorldCarboniferous.portal.portalSpawn(world, pos1);
 
                 if (portalSpawnCarboniferous) {
