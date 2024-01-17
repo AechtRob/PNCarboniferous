@@ -1016,7 +1016,7 @@ public class WorldCarboniferous extends ElementsLepidodendronMod.ModElement {
 			entityIn.setWorld(toWorldIn);
 		}
 
-		private TeleporterDimensionMod getTeleporterForDimension(Entity entity, BlockPos pos, int dimid) {
+		public static TeleporterDimensionMod getTeleporterForDimension(Entity entity, BlockPos pos, int dimid) {
 			BlockPattern.PatternHelper bph = portal.createPatternHelper(entity.world, new BlockPos(pos));
 			double d0 = bph.getForwards().getAxis() == EnumFacing.Axis.X
 					? (double) bph.getFrontTopLeft().getZ()

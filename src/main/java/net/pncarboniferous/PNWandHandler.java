@@ -3,15 +3,19 @@ package net.pncarboniferous;
 import net.lepidodendron.LepidodendronConfig;
 import net.lepidodendron.enchantments.Enchantments;
 import net.lepidodendron.item.ItemBoneWand;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.EntityTravelToDimensionEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.pncarboniferous.world.dimension.carboniferous.WorldCarboniferous;
 
 public class PNWandHandler {
@@ -62,6 +66,32 @@ public class PNWandHandler {
                     event.setCancellationResult(EnumActionResult.SUCCESS);
                     event.setCanceled(true);
                     return;
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent //Manage Nether portals: when travelling to the Nether
+    // use the overworld (or other) portal, not a new Nether Portal in the Nether itself.
+    //This subscriber is also copied into the dimension mods to deal with those.
+    public void goToNether(EntityTravelToDimensionEvent event) {
+        if (LepidodendronConfig.oneWayPortalsNether && LepidodendronConfig.oneWayPortals) {
+            if (event.getDimension() == -1) {
+                //We are travelling to the Nether from here:
+                Entity entityIn = event.getEntity();
+                World worldIn = entityIn.getEntityWorld();
+                int DIMID = -1;
+
+                if (event.getEntity().getEntityWorld().provider.getDimensionType().getId() == 0) {
+                    if (!worldIn.isRemote && !entityIn.isRiding() && !entityIn.isBeingRidden() && entityIn instanceof EntityPlayerMP) {
+                        EntityPlayerMP thePlayer = (EntityPlayerMP) entityIn;
+                        if (thePlayer.dimension != DIMID) {
+                            thePlayer.timeUntilPortal = 10;
+                            ReflectionHelper.setPrivateValue(EntityPlayerMP.class, thePlayer, true, "invulnerableDimensionChange", "field_184851_cj");
+                            WorldCarboniferous.BlockCustomPortal.transferPlayerToDimensionPN(thePlayer.server.getPlayerList(), thePlayer, DIMID, WorldCarboniferous.BlockCustomPortal.getTeleporterForDimension(thePlayer, entityIn.getPosition(), DIMID));
+                        }
+                    }
+                    event.setCanceled(true);
                 }
             }
         }
