@@ -80,15 +80,14 @@ public class PNWandHandler {
                 //We are travelling to the Nether from here:
                 Entity entityIn = event.getEntity();
                 World worldIn = entityIn.getEntityWorld();
-                int DIMID = -1;
 
-                if (event.getEntity().getEntityWorld().provider.getDimensionType().getId() == 0) {
+                if (event.getEntity().getEntityWorld().provider.getDimensionType().getId() == LepidodendronConfig.dimCarboniferous) {
                     if (!worldIn.isRemote && !entityIn.isRiding() && !entityIn.isBeingRidden() && entityIn instanceof EntityPlayerMP) {
                         EntityPlayerMP thePlayer = (EntityPlayerMP) entityIn;
-                        if (thePlayer.dimension != DIMID) {
+                        if (thePlayer.dimension != event.getDimension()) {
                             thePlayer.timeUntilPortal = 10;
                             ReflectionHelper.setPrivateValue(EntityPlayerMP.class, thePlayer, true, "invulnerableDimensionChange", "field_184851_cj");
-                            WorldCarboniferous.BlockCustomPortal.transferPlayerToDimensionPN(thePlayer.server.getPlayerList(), thePlayer, DIMID, WorldCarboniferous.BlockCustomPortal.getTeleporterForDimension(thePlayer, entityIn.getPosition(), DIMID));
+                            WorldCarboniferous.BlockCustomPortal.transferPlayerToDimensionPN(thePlayer.server.getPlayerList(), thePlayer, event.getDimension(), WorldCarboniferous.BlockCustomPortal.getTeleporterForDimension(thePlayer, entityIn.getPosition(), event.getDimension()));
                         }
                     }
                     event.setCanceled(true);
