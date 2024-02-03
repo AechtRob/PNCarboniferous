@@ -60,7 +60,6 @@ public class BiomeCarboniferousBeach extends ElementsLepidodendronMod.ModElement
 		}
 
 		protected static final WorldGenCordaites CORDAITES = new WorldGenCordaites(false);
-		protected static final WorldGenReef REEF_GENERATOR = new WorldGenReef();
 		protected static final WorldGenGravelPatch CLAY_PATCH_GENERATOR = new WorldGenGravelPatch(Blocks.CLAY, 6);
 		protected static final WorldGenCoarseDirt TOPSOIL_GENERATOR = new WorldGenCoarseDirt();
 		protected static final WorldGenPrehistoricGroundCoverLush GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCoverLush();

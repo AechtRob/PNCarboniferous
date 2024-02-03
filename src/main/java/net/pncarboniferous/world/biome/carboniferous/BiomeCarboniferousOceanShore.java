@@ -141,11 +141,12 @@ public class BiomeCarboniferousOceanShore extends ElementsLepidodendronMod.ModEl
 					int radius = 3;
 					int jj;
 					int kk;
-					if (radius < 14) {
-						jj = 16 + rand.nextInt(16 - radius - 2) - rand.nextInt(16 - radius - 2);
-						kk = 16 + rand.nextInt(16 - radius - 2) - rand.nextInt(16 - radius - 2);
-					} else {
-						radius = 14;
+					if (radius < 10) {
+						jj = 16 + (int)Math.floor(rand.nextInt(16 - radius - 6)/2) - (int)Math.floor(rand.nextInt(16 - radius - 6)/2);
+						kk = 16 + (int)Math.floor(rand.nextInt(16 - radius - 6)/2) - (int)Math.floor(rand.nextInt(16 - radius - 6)/2);
+					}
+					else {
+						radius = 10;
 						jj = 16;
 						kk = 16;
 					}
