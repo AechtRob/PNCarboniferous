@@ -13,6 +13,7 @@ import net.minecraft.world.biome.BiomeProvider;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 import net.minecraft.world.storage.WorldInfo;
+import net.pncarboniferous.world.biome.carboniferous.BiomeCarboniferousOceanShore;
 import net.pncarboniferous.world.dimension.carboniferous.GenLayerCarboniferous.GenLayerCarboniferous;
 
 import javax.annotation.Nullable;
@@ -21,15 +22,33 @@ import java.util.Random;
 
 public class BiomeProviderCarboniferous extends BiomeProvider {
     public static List<Biome> allowedBiomes = Lists.newArrayList(
-            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_ocean")),
-            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_ocean_shore")),
-            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_swamp")),
-            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_swamp_hills")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_beach")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_cold_woodland")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_cold_savanna")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_creek_coastal")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_creek_cold_savanna")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_creek_estuary")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_creek_hills")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_creek_polar")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_creek_marsh")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_creek_swamp")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_estuary")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_estuary_helper")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_hills")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_hills_high")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_hills_edge")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_polar_desert")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_polar_desert_edge")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_polar_lakes")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_polar_desert_spikes")),
-            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_beach"))
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_marsh")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_ocean")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_ocean_cliff")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_ocean_shore")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_swamp")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_swamp_burnt")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_swamp_hills")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_swamp_river_border"))
     );
     public GenLayer genBiomes;
     /** A GenLayer containing the indices into BiomeGenBase.biomeList[] */
@@ -62,7 +81,7 @@ public class BiomeProviderCarboniferous extends BiomeProvider {
 
     @Override
     public Biome getBiome(BlockPos pos, Biome defaultBiome) {
-        return this.biomeCache.getBiome(pos.getX(), pos.getZ(), defaultBiome);
+        return this.biomeCache.getBiome(pos.getX(), pos.getZ(), BiomeCarboniferousOceanShore.biome);
     }
 
     @Override
@@ -81,7 +100,7 @@ public class BiomeProviderCarboniferous extends BiomeProvider {
         {
             for (int i = 0; i < width * height; ++i)
             {
-                biomes[i] = Biome.getBiome(aint[i], Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_ocean")));
+                biomes[i] = Biome.getBiome(aint[i], Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_ocean_shore")));
             }
 
             return biomes;
@@ -121,7 +140,7 @@ public class BiomeProviderCarboniferous extends BiomeProvider {
 
             for (int i = 0; i < width * length; ++i)
             {
-                listToReuse[i] = Biome.getBiome(aint[i], Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_ocean")));
+                listToReuse[i] = Biome.getBiome(aint[i], Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_ocean_shore")));
             }
 
             return listToReuse;
