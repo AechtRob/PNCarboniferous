@@ -62,7 +62,7 @@ public class GenLayerCarboniferous {
         biomes = new GenLayerSmooth(705L, biomes);
         biomes = new GenLayerFuzzyZoom(1001L, biomes);
 
-        biomes = new GenLayerCarboniferousTarnCratersWater(199L, biomes);
+        biomes = new GenLayerCarboniferousTarnCratersWaterSmall(199L, biomes);
         biomes = new GenLayerCarboniferousRiverBorder(325L, biomes);
         biomes = new GenLayerSmooth(706L, biomes);
         biomes = new GenLayerFuzzyZoom(1002L, biomes);
