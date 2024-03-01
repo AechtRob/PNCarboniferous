@@ -10,6 +10,8 @@ public class GenLayerCarboniferousRiverBorder extends GenLayer
 
     public Biome CARBONIFEROUS_RIVER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_swamp_river_border"));
     public int CARBONIFEROUS_RIVER_ID = Biome.getIdForBiome(CARBONIFEROUS_RIVER);
+    public Biome CARBONIFEROUS_RIDGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_hills_high"));
+    public int CARBONIFEROUS_RIDGE_ID = Biome.getIdForBiome(CARBONIFEROUS_RIDGE);
 
     public Biome CARBONIFEROUS_SWAMP = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_swamp"));
     public int CARBONIFEROUS_SWAMP_ID = Biome.getIdForBiome(CARBONIFEROUS_SWAMP);
@@ -39,6 +41,13 @@ public class GenLayerCarboniferousRiverBorder extends GenLayer
     public int CARBONIFEROUS_ICE_LAKES_ID =  Biome.getIdForBiome(CARBONIFEROUS_ICE_LAKES);
     public Biome CARBONIFEROUS_ICE_SPIKES = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_polar_desert_spikes"));
     public int CARBONIFEROUS_ICE_SPIKES_ID =  Biome.getIdForBiome(CARBONIFEROUS_ICE_SPIKES);
+
+    public Biome CARBONIFEROUS_TARN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_volcanic_tarns"));
+    public int CARBONIFEROUS_TARNS_ID =  Biome.getIdForBiome(CARBONIFEROUS_TARN);
+    public Biome CARBONIFEROUS_CRATER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_volcanic_tarns_crater"));
+    public int CARBONIFEROUS_TARNS_CRATER_ID =  Biome.getIdForBiome(CARBONIFEROUS_CRATER);
+    public Biome CARBONIFEROUS_CRATER_WATER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_volcanic_tarns_crater_water"));
+    public int CARBONIFEROUS_TARNS_CRATER_WATER_ID =  Biome.getIdForBiome(CARBONIFEROUS_CRATER_WATER);
 
 
     public GenLayerCarboniferousRiverBorder(long seed, GenLayer genLayer)
@@ -79,6 +88,26 @@ public class GenLayerCarboniferousRiverBorder extends GenLayer
                         aint1[j + i * areaWidth] = k;
                     }
                 }
+                else if (isTarns(k))
+                {
+                    int l1 = aint[j + 1 + (i + 1 - 1) * (areaWidth + 2)];
+                    int k2 = aint[j + 1 + 1 + (i + 1) * (areaWidth + 2)];
+                    int j3 = aint[j + 1 - 1 + (i + 1) * (areaWidth + 2)];
+                    int i4 = aint[j + 1 + (i + 1 + 1) * (areaWidth + 2)];
+
+                    if ((!isTarns(l1) && !isOceanOrBeach(l1) && isRequiredforTarns(l1))
+                            || (!isTarns(k2) && !isOceanOrBeach(k2) && isRequiredforTarns(k2))
+                            || (!isTarns(j3) && !isOceanOrBeach(j3) && isRequiredforTarns(j3))
+                            || (!isTarns(i4) && !isOceanOrBeach(i4) && isRequiredforTarns(i4))
+                    )
+                    {
+                        aint1[j + i * areaWidth] = CARBONIFEROUS_RIDGE_ID;
+                    }
+                    else
+                    {
+                        aint1[j + i * areaWidth] = k;
+                    }
+                }
                 else
                 {
                     aint1[j + i * areaWidth] = k;
@@ -113,6 +142,25 @@ public class GenLayerCarboniferousRiverBorder extends GenLayer
                 || biomeID == CARBONIFEROUS_ICE_EDGE_ID
                 || biomeID == CARBONIFEROUS_ICE_LAKES_ID
                 || biomeID == CARBONIFEROUS_ICE_SPIKES_ID) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isTarns(int biomeID) {
+        if (biomeID == CARBONIFEROUS_TARNS_ID
+                || biomeID == CARBONIFEROUS_TARNS_CRATER_ID
+                || biomeID == CARBONIFEROUS_TARNS_CRATER_WATER_ID) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isRequiredforTarns(int biomeID) {
+        if (biomeID != CARBONIFEROUS_TARNS_ID
+                && biomeID != CARBONIFEROUS_TARNS_CRATER_ID
+                && biomeID != CARBONIFEROUS_TARNS_CRATER_WATER_ID
+                && biomeID != CARBONIFEROUS_SAVANNA_ID) {
             return true;
         }
         return false;

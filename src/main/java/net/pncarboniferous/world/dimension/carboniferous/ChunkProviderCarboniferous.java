@@ -136,7 +136,12 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
         long l = this.random.nextLong() / 2 * 2 + 1;
         this.random.setSeed((long) x * k + (long) z * l ^ this.world.getSeed());
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.random, x, z, false);
-        if (this.random.nextInt(4) == 0 && biome != BiomeCarboniferousMarsh.biome && biome != BiomeCarboniferousIce.biome && biome != BiomeCarboniferousIceLakes.biome && biome != BiomeCarboniferousIceSpikes.biome && biome != BiomeCarboniferousIceEdge.biome && biome != BiomeCarboniferousBeach.biome && biome != BiomeCarboniferousOceanShore.biome && biome != BiomeCarboniferousOceanCliff.biome&& biome != BiomeCarboniferousEstuary.biome)
+        if (this.random.nextInt(4) == 0 && biome != BiomeCarboniferousMarsh.biome && biome != BiomeCarboniferousIce.biome
+                && biome != BiomeCarboniferousIceLakes.biome && biome != BiomeCarboniferousIceSpikes.biome
+                && biome != BiomeCarboniferousIceEdge.biome && biome != BiomeCarboniferousBeach.biome
+                && biome != BiomeCarboniferousOceanShore.biome && biome != BiomeCarboniferousOceanCliff.biome
+                && biome != BiomeCarboniferousEstuary.biome && biome != BiomeCarboniferousVolcanicTarnsCrater.biome
+                && biome != BiomeCarboniferousVolcanicTarns.biome && biome != BiomeCarboniferousVolcanicTarnsCraterWater.biome)
             if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
                     net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
                 int i1 = this.random.nextInt(16) + 8;
@@ -383,7 +388,26 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
                         } else if (j1 <= i + 1) {
                             iblockstate = biome.topBlock;
                             //iblockstate1 = biome.fillerBlock;
-                            if (Math.random() > 0.85) {
+                            if (biome == BiomeCarboniferousVolcanicTarnsCrater.biome
+                                || biome == BiomeCarboniferousVolcanicTarnsCraterWater.biome) {
+                                iblockstate1 = biome.topBlock;
+                                if (rand.nextInt(10) == 0) {
+                                    iblockstate1 = biome.fillerBlock;
+                                }
+                                if (rand.nextInt(8) == 0) {
+                                    iblockstate1 = BlockToxicMud.block.getDefaultState();
+                                }
+                            }
+                            else if (biome == BiomeCarboniferousVolcanicTarns.biome) {
+                                iblockstate1 = biome.topBlock;
+                                if (rand.nextInt(4) != 0) {
+                                    iblockstate1 = BlockToxicMud.block.getDefaultState();
+                                }
+                                if (rand.nextInt(8) == 0) {
+                                    iblockstate1 = BlockSandBlackWavy.block.getDefaultState();
+                                }
+                            }
+                            else if (Math.random() > 0.85) {
                                 if (biome == BiomeCarboniferousBeach.biome) {
                                     iblockstate1 = biome.topBlock;
                                 }
@@ -493,6 +517,36 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
                             }
                         }
 
+                        if (biome == BiomeCarboniferousVolcanicTarns.biome
+                        ) {
+                            //Add some extra stone:
+                            if (rand.nextInt(24) == 0) {
+                                iblockstate = Blocks.STONE.getStateFromMeta(0);
+                            }
+                            if (rand.nextInt(24) == 0) {
+                                iblockstate = Blocks.COBBLESTONE.getStateFromMeta(0);
+                            }
+                            if (rand.nextInt(24) == 0) {
+                                iblockstate1 = Blocks.STONE.getStateFromMeta(0);
+                            }
+                            if (rand.nextInt(24) == 0) {
+                                iblockstate1 = Blocks.COBBLESTONE.getStateFromMeta(0);
+                            }
+                            if (rand.nextInt(24) == 0) {
+                                iblockstate = Blocks.GRAVEL.getStateFromMeta(0);
+                            }
+                        }
+                        if (biome == BiomeCarboniferousVolcanicTarnsCrater.biome
+                        ) {
+                            //Add lots more mix:
+                            if (rand.nextInt(4) != 0) {
+                                iblockstate = BlockSandBlack.block.getDefaultState();
+                            }
+                            if (rand.nextInt(8) == 0) {
+                                iblockstate = BlockLavaRock.block.getDefaultState();
+                            }
+                        }
+
                         //Add dirt to Steppe
                         if (biome == BiomeCarboniferousColdSavanna.biome && rand.nextInt(3) == 0
                         ) {
@@ -539,7 +593,9 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
                             chunkPrimerIn.setBlockState(i1, j1, l, iblockstate);
                         }
                         else {
-                            if (Math.random() > 0.4 && j1 >= i - 10) {
+                            if (Math.random() > 0.4 && j1 >= i - 10
+                                    || biome == BiomeCarboniferousVolcanicTarnsCraterWater.biome
+                                    || biome == BiomeCarboniferousVolcanicTarnsCrater.biome) {
                                 if (Math.random() > 0.75) {
                                     if (biome == BiomeCarboniferousIce.biome || biome == BiomeCarboniferousIceLakes.biome || biome == BiomeCarboniferousIceEdge.biome || biome == BiomeCarboniferousIceSpikes.biome || biome == BiomeCarboniferousOcean.biome || biome == BiomeCarboniferousOceanShore.biome || biome == BiomeCarboniferousOceanCliff.biome) {
                                         chunkPrimerIn.setBlockState(i1, j1, l, Blocks.GRAVEL.getDefaultState());
@@ -551,6 +607,18 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
                                 else {
                                     if (biome == BiomeCarboniferousOcean.biome || biome == BiomeCarboniferousOceanShore.biome  || biome == BiomeCarboniferousOceanCliff.biome || biome == BiomeCarboniferousBeach.biome) {
                                         chunkPrimerIn.setBlockState(i1, j1, l, BlockCoarseSandyDirt.block.getDefaultState());
+                                    }
+                                    if (biome == BiomeCarboniferousVolcanicTarnsCrater.biome || biome == BiomeCarboniferousVolcanicTarnsCraterWater.biome) {
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockCoarseSandyDirtBlack.block.getDefaultState());
+                                        if (rand.nextInt(3) == 0) {
+                                            chunkPrimerIn.setBlockState(i1, j1, l, BlockSandBlackWavy.block.getDefaultState());
+                                        }
+                                        if (rand.nextInt(6) == 0) {
+                                            chunkPrimerIn.setBlockState(i1, j1, l, BlockLavaCobble.block.getDefaultState());
+                                        }
+                                        if (rand.nextInt(8) == 0) {
+                                            chunkPrimerIn.setBlockState(i1, j1, l, BlockLavaCobbleMossy.block.getDefaultState());
+                                        }
                                     }
                                     else {
                                         chunkPrimerIn.setBlockState(i1, j1, l, Blocks.DIRT.getStateFromMeta(1));

@@ -39,20 +39,30 @@ public class GenLayerCarboniferous {
         biomes = new GenLayerCarboniferousHillsCentre(37L, biomes);
         biomes = new GenLayerCarboniferousIceLakes(1000L, biomes);
         biomes = new GenLayerSmooth(700L, biomes);
+        biomes = new GenLayerCarboniferousTarnCraters(1451L, biomes);
         biomes = new GenLayerZoom(1005L, biomes);
+
+        biomes = new GenLayerCarboniferousTarnCratersWater(191L, biomes);
+        biomes = new GenLayerCarboniferousTarnCraters(1452L, biomes);
 
         biomes = new GenLayerCarboniferousEstuary2(1000L, biomes);
 
         biomes = new GenLayerCarboniferousHillsCentreExpand(77L, biomes);
         biomes = new GenLayerCarboniferousIceSpikes(1000L, biomes);
         biomes = new GenLayerSmooth(703L, biomes);
+
+        biomes = new GenLayerCarboniferousTarnCratersWater(191L, biomes);
         biomes = new GenLayerFuzzyZoom(1000L, biomes);
+
+        biomes = new GenLayerCarboniferousTarnCratersWater(191L, biomes);
         biomes = new GenLayerCarboniferousBeach(1050L, biomes);
         biomes = new GenLayerDiversifyCarboniferousBurnt(667L, biomes);
         biomes = new GenLayerDiversifyCarboniferousBurntMarsh(667L, biomes);
         biomes = new GenLayerCarboniferousCliff(1080L, biomes);
         biomes = new GenLayerSmooth(705L, biomes);
         biomes = new GenLayerFuzzyZoom(1001L, biomes);
+
+        biomes = new GenLayerCarboniferousTarnCratersWater(199L, biomes);
         biomes = new GenLayerCarboniferousRiverBorder(325L, biomes);
         biomes = new GenLayerSmooth(706L, biomes);
         biomes = new GenLayerFuzzyZoom(1002L, biomes);

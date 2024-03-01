@@ -38,6 +38,12 @@ public class GenLayerCarboniferousRiverMix  extends GenLayer
     public  int CARBONIFEROUS_OCEAN_CLIFF_ID =  Biome.getIdForBiome(CARBONIFEROUS_OCEAN_CLIFF);
     public  Biome CARBONIFEROUS_MOUNTAINS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_hills_high"));
     public  int CARBONIFEROUS_MOUNTAINS_ID =  Biome.getIdForBiome(CARBONIFEROUS_MOUNTAINS);
+    public  Biome CARBONIFEROUS_TARNS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_volcanic_tarns"));
+    public  int CARBONIFEROUS_TARNS_ID =  Biome.getIdForBiome(CARBONIFEROUS_TARNS);
+    public  Biome CARBONIFEROUS_TARNS_CRATER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_volcanic_tarns_crater"));
+    public  int CARBONIFEROUS_TARNS_CRATER_ID =  Biome.getIdForBiome(CARBONIFEROUS_TARNS_CRATER);
+    public  Biome CARBONIFEROUS_TARNS_CRATER_WATER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_volcanic_tarns_crater_water"));
+    public  int CARBONIFEROUS_TARNS_CRATER_WATER_ID =  Biome.getIdForBiome(CARBONIFEROUS_TARNS_CRATER_WATER);
 
     public GenLayerCarboniferousRiverMix(long p_i2129_1_, GenLayer p_i2129_3_, GenLayer p_i2129_4_)
     {
@@ -68,6 +74,9 @@ public class GenLayerCarboniferousRiverMix  extends GenLayer
                         || aint[i] == CARBONIFEROUS_OCEAN_ID
                         || aint[i] == CARBONIFEROUS_OCEAN_CLIFF_ID
                         || aint[i] == CARBONIFEROUS_MOUNTAINS_ID
+                        || aint[i] == CARBONIFEROUS_TARNS_ID
+                        || aint[i] == CARBONIFEROUS_TARNS_CRATER_ID
+                        || aint[i] == CARBONIFEROUS_TARNS_CRATER_WATER_ID
                 )
                 {
                     aint2[i] = aint[i];
