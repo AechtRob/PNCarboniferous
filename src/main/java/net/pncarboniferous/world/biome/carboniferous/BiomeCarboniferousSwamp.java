@@ -45,7 +45,7 @@ public class BiomeCarboniferousSwamp extends ElementsLepidodendronMod.ModElement
 	static class BiomeGenCustom extends BiomeCarboniferous {
 		public BiomeGenCustom() {
 			//super(new Biome.BiomeProperties("Carboniferous Swamp").setRainfall(0.5F).setBaseHeight(-0.08F).setHeightVariation(0.09F).setTemperature(0.95F).setRainfall(0.9F).setWaterColor(8186044));
-			super(new Biome.BiomeProperties("Carboniferous Swamp").setRainfall(0.5F).setBaseHeight(-0.08F).setHeightVariation(0.09F).setTemperature(0.95F).setRainfall(0.9F).setWaterColor(3906905));
+			super(new Biome.BiomeProperties("Carboniferous Coal Swamp").setRainfall(0.5F).setBaseHeight(-0.08F).setHeightVariation(0.09F).setTemperature(0.95F).setRainfall(0.9F).setWaterColor(3906905));
 			setRegistryName("lepidodendron:carboniferous_swamp");
 			topBlock = BlockPrehistoricGroundLush.block.getDefaultState();
 			fillerBlock = Blocks.DIRT.getStateFromMeta(1);
@@ -126,6 +126,7 @@ public class BiomeCarboniferousSwamp extends ElementsLepidodendronMod.ModElement
 		protected static final WorldGenFungiSimple SIMPLE_FUNGI_GENERATOR = new WorldGenFungiSimple();
 		protected static final WorldGenSlimyAlgae SLIMY_GENERATOR = new WorldGenSlimyAlgae();
 		protected static final WorldGenPeat PEAT_GENERATOR = new WorldGenPeat();
+		protected static final WorldGenCecropsis CECROPSIS_GENERATOR = new WorldGenCecropsis();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -144,9 +145,9 @@ public class BiomeCarboniferousSwamp extends ElementsLepidodendronMod.ModElement
 				case 5:
 					return CALAMITES;
 				case 6:
-					return MACRONEUROPTERIS_TREE;
+					return VALMEYERODENDRON_TREE;
 				case 7:
-					return MACRONEUROPTERIS_TREE;
+					return VALMEYERODENDRON_TREE;
 				case 8:
 					return SIGILLARIA_TREE;
 				case 9:
@@ -248,6 +249,15 @@ public class BiomeCarboniferousSwamp extends ElementsLepidodendronMod.ModElement
 	            }
 	        }
 
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 24; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					CECROPSIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+
 	        DOUBLE_PLANT_GENERATOR.setPlantType(BlockDoublePlant.EnumPlantType.FERN);
 	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 	        for (int i1 = 0; i1 < 20; ++i1)
@@ -267,14 +277,14 @@ public class BiomeCarboniferousSwamp extends ElementsLepidodendronMod.ModElement
 	            FERN_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 	        }
 	        
-	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-	        for (int i = 0; i < 3; ++i)
-	        {
-	            int j = rand.nextInt(16) + 8;
-	            int k = rand.nextInt(16) + 8;
-	            int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-	            MEDULLOSALES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
-	        }
+//	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+//	        for (int i = 0; i < 3; ++i)
+//	        {
+//	            int j = rand.nextInt(16) + 8;
+//	            int k = rand.nextInt(16) + 8;
+//	            int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+//	            MEDULLOSALES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+//	        }
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 4; ++i)

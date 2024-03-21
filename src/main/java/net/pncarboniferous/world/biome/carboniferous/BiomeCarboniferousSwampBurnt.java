@@ -45,7 +45,7 @@ public class BiomeCarboniferousSwampBurnt extends ElementsLepidodendronMod.ModEl
 	static class BiomeGenCustom extends BiomeCarboniferous {
 		public BiomeGenCustom() {
 			//super(new Biome.BiomeProperties("Carboniferous Swamp").setRainfall(0.5F).setBaseHeight(-0.08F).setHeightVariation(0.09F).setTemperature(0.95F).setRainfall(0.9F).setWaterColor(8186044));
-			super(new BiomeProperties("Burnt-Out Carboniferous Swamp").setRainfall(0.5F).setBaseHeight(0.08F).setHeightVariation(0.09F).setTemperature(0.95F).setRainfall(0.9F).setWaterColor(3906905));
+			super(new BiomeProperties("Burnt-Out Carboniferous Coal Swamp").setRainfall(0.5F).setBaseHeight(0.08F).setHeightVariation(0.09F).setTemperature(0.95F).setRainfall(0.9F).setWaterColor(3906905));
 			setRegistryName("lepidodendron:carboniferous_swamp_burnt");
 			topBlock = BlockPrehistoricGroundLush.block.getDefaultState();
 			fillerBlock = Blocks.DIRT.getStateFromMeta(1);
@@ -93,6 +93,7 @@ public class BiomeCarboniferousSwampBurnt extends ElementsLepidodendronMod.ModEl
 
 		protected static final WorldGenLepidodendronTreeBurnt BURNT_TREE = new WorldGenLepidodendronTreeBurnt(false);
 		protected static final WorldGenBurntBush BURNT_BUSH = new WorldGenBurntBush(false);
+		protected static final WorldGenNullTree NULL_TREE = new WorldGenNullTree(false);
 
 		protected static final WorldGenSigillariaSmall SIGILLARIA_GENERATOR = new WorldGenSigillariaSmall();
 
@@ -112,6 +113,7 @@ public class BiomeCarboniferousSwampBurnt extends ElementsLepidodendronMod.ModEl
 		protected static final WorldGenFungiSimple SIMPLE_FUNGI_GENERATOR = new WorldGenFungiSimple();
 		protected static final WorldGenPeat PEAT_GENERATOR = new WorldGenPeat();
 		protected static final WorldGenClubmoss CLUBMOSS_GENERATOR = new WorldGenClubmoss();
+		protected static final WorldGenCecropsis CECROPSIS_GENERATOR = new WorldGenCecropsis();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -130,9 +132,9 @@ public class BiomeCarboniferousSwampBurnt extends ElementsLepidodendronMod.ModEl
 				case 5:
 					return BURNT_BUSH;
 				case 6:
-					return MACRONEUROPTERIS_TREE;
+					return NULL_TREE;
 				case 7:
-					return MACRONEUROPTERIS_TREE;
+					return NULL_TREE;
 				case 8:
 					return BURNT_BUSH;
 				case 9:
@@ -204,6 +206,15 @@ public class BiomeCarboniferousSwampBurnt extends ElementsLepidodendronMod.ModEl
 	            int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 	            MUD_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 	        }
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 24; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					CECROPSIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
 	        
 
 	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

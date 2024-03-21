@@ -334,6 +334,14 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
                         d3 = d4;
                     }
 
+                    if (biome == BiomeCarboniferousSwampFlat.biome
+                        || biome == BiomeCarboniferousFernyFen.biome) {
+                        //Flatten these out somewhat:
+                        d4 = (d4 + 5D) / 6D;
+                        d2 = d4;
+                        d3 = d4;
+                    }
+
                     double d5 = MathHelper.clampedLerp(d2, d3, d4) - d1;
                     if (l1 > 29) {
                         double d6 = (double) ((float) (l1 - 29) / 3.0F);
@@ -466,6 +474,18 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
                         ) {
                             if (rand.nextInt(2) == 0) {
                                 iblockstate = Blocks.GRAVEL.getDefaultState();
+                            }
+                        }
+
+                        //In the Fen, add in some Ferny ground:
+                        if (biome == BiomeCarboniferousFernyFen.biome
+                                ||  biome == BiomeCarboniferousCreekFernyFen.biome
+                        ) {
+                            if (rand.nextInt(3) == 0) {
+                                iblockstate = BlockPrehistoricGroundFern.block.getDefaultState();
+                            }
+                            if (rand.nextInt(5) == 0) {
+                                iblockstate = Blocks.DIRT.getStateFromMeta(2);
                             }
                         }
 

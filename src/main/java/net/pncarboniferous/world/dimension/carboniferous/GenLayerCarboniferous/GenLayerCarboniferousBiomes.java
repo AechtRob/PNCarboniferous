@@ -11,6 +11,8 @@ public class GenLayerCarboniferousBiomes extends GenLayer {
     public int CARBONIFEROUS_OCEAN_SHORE_ID =  Biome.getIdForBiome(CARBONIFEROUS_OCEAN_SHORE);
     public Biome CARBONIFEROUS_SWAMP = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_swamp"));
     public int CARBONIFEROUS_SWAMP_ID =  Biome.getIdForBiome(CARBONIFEROUS_SWAMP);
+    public Biome CARBONIFEROUS_FEN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_fen"));
+    public int CARBONIFEROUS_FEN_ID =  Biome.getIdForBiome(CARBONIFEROUS_FEN);
     public Biome CARBONIFEROUS_ICE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_polar_desert"));
     public int CARBONIFEROUS_ICE_ID =  Biome.getIdForBiome(CARBONIFEROUS_ICE);
     public Biome CARBONIFEROUS_MARSH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_marsh"));
@@ -19,7 +21,7 @@ public class GenLayerCarboniferousBiomes extends GenLayer {
     private final int CarboniferousBiomes[] = new int[] {
         CARBONIFEROUS_SWAMP_ID,
         CARBONIFEROUS_SWAMP_ID,
-        CARBONIFEROUS_SWAMP_ID,
+        CARBONIFEROUS_FEN_ID,
         CARBONIFEROUS_MARSH_ID,
         CARBONIFEROUS_ICE_ID,
         CARBONIFEROUS_OCEAN_SHORE_ID

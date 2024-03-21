@@ -28,6 +28,8 @@ public class GenLayerCarboniferousRiverMix  extends GenLayer
     public int CARBONIFEROUS_CREEK_ESTUARY_ID =  Biome.getIdForBiome(CARBONIFEROUS_CREEK_ESTUARY);
     public Biome CARBONIFEROUS_CREEK_SAVANNA = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_creek_cold_savanna"));
     public int CARBONIFEROUS_CREEK_SAVANNA_ID =  Biome.getIdForBiome(CARBONIFEROUS_CREEK_SAVANNA);
+    public Biome CARBONIFEROUS_CREEK_FEN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_creek_fen"));
+    public int CARBONIFEROUS_CREEK_FEN_ID =  Biome.getIdForBiome(CARBONIFEROUS_CREEK_FEN);
 
     //Biomes to exclude for rivers:
     public Biome CARBONIFEROUS_OCEAN_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_ocean_shore"));
@@ -106,6 +108,9 @@ public class GenLayerCarboniferousRiverMix  extends GenLayer
                         }
                         else if (biomeCarboniferous.getBiomeType() == EnumBiomeTypeCarboniferous.Savanna) {
                             aint2[i] = CARBONIFEROUS_CREEK_SAVANNA_ID;
+                        }
+                        else if (biomeCarboniferous.getBiomeType() == EnumBiomeTypeCarboniferous.Fen) {
+                            aint2[i] = CARBONIFEROUS_CREEK_FEN_ID;
                         }
                         else {
                             aint2[i] = aint[i];

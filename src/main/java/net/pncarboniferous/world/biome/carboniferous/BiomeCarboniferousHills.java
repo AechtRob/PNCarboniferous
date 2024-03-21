@@ -95,7 +95,7 @@ public class BiomeCarboniferousHills extends ElementsLepidodendronMod.ModElement
 
 		//protected static final WorldGenLepidodendronTree LEPIDODENDRON_TREE = new WorldGenLepidodendronTree(false);
 		protected static final WorldGenWalchiaTree WALCHIA_TREE = new WorldGenWalchiaTree(false);
-		//protected static final WorldGenCordaites CORDAITES_TREE = new WorldGenCordaites(false);
+		protected static final WorldGenCordaitesDry CORDAITES_TREE_DRY = new WorldGenCordaitesDry(false);
 		protected static final WorldGenPsaronius PSARONIUS = new WorldGenPsaronius(false);
 		protected static final WorldGenAlethopterisTree ALETHOPTERIS_TREE = new WorldGenAlethopterisTree(false);
 		//protected static final WorldGenPuddles PUDDLES_GENERATOR = new WorldGenPuddles();
@@ -131,15 +131,15 @@ public class BiomeCarboniferousHills extends ElementsLepidodendronMod.ModElement
 	    		case 0 :
 	    			return WALCHIA_TREE;
 	       		case 1 :
-	    			return ALETHOPTERIS_TREE;
+	    			return WALCHIA_TREE;
 	       		case 2 :
-	    			return ALETHOPTERIS_TREE;
+	    			return WALCHIA_TREE;
 	       		case 3 :
 	    			return WALCHIA_TREE;
 	       		case 4 :
-	    			return WALCHIA_TREE;
+	    			return CORDAITES_TREE_DRY;
 	       		case 5 :
-	    			return WALCHIA_TREE;
+	    			return CORDAITES_TREE_DRY;
 	       		case 6 :
 	    			return PSARONIUS;
 	       		case 7 :
@@ -208,14 +208,14 @@ public class BiomeCarboniferousHills extends ElementsLepidodendronMod.ModElement
 	            TOPSOIL_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 	        }
 
-	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-	        for (int i = 0; i < 4; ++i)
-	        {
-	            int j = rand.nextInt(16) + 8;
-	            int k = rand.nextInt(16) + 8;
-	            int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-	            MEDULLOSALES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
-	        }
+//	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+//	        for (int i = 0; i < 4; ++i)
+//	        {
+//	            int j = rand.nextInt(16) + 8;
+//	            int k = rand.nextInt(16) + 8;
+//	            int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+//	            MEDULLOSALES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+//	        }
 
 	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 			for (int i = 0; i < 8; ++i)
