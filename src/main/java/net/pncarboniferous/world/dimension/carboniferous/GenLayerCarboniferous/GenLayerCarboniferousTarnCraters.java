@@ -41,7 +41,7 @@ public class GenLayerCarboniferousTarnCraters extends GenLayer
                     int i4 = aint[j + 1 + (i + 1 + 1) * (areaWidth + 2)];
 
                     if (isNotCrater(l1) && isNotCrater(k2) && isNotCrater(j3) && isNotCrater(i4)
-                        && nextInt(5) <= 1)
+                        && nextInt(4) <= 1)
                     {
                         aint1[j + i * areaWidth] = CARBONIFEROUS_CRATER_ID;
                     }
