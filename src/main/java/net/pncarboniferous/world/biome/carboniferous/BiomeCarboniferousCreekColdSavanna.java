@@ -60,7 +60,7 @@ public class BiomeCarboniferousCreekColdSavanna extends ElementsPNCarboniferousM
 		//This tree generator already has some alternative trees for this biome in its gen code
 
 		protected static final WorldGenStauropteris STAUROPTERIS_GENERATOR = new WorldGenStauropteris();
-		protected static final WorldGenSphenopteris SPHENOPTERIS_GENERATOR = new WorldGenSphenopteris();
+		protected static final WorldGenSphenopterisSeed SPHENOPTERIS_SEED_GENERATOR = new WorldGenSphenopterisSeed();
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
 		protected static final WorldGenPrehistoricGroundCover GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCover();
 
@@ -188,7 +188,7 @@ public class BiomeCarboniferousCreekColdSavanna extends ElementsPNCarboniferousM
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					SPHENOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					SPHENOPTERIS_SEED_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))

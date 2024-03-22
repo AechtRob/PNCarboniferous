@@ -69,26 +69,26 @@ public class BiomeCarboniferousCreekFernyFen extends ElementsLepidodendronMod.Mo
 		@SideOnly(Side.CLIENT)
 		public int getFoliageColorAtPos(BlockPos pos)
 		{
-			return -7358405;
+			return -11368175;
 		}
 
 		@Override
 		@SideOnly(Side.CLIENT)
 		public int getGrassColorAtPos(BlockPos pos)
 		{
-			return -7358405;
+			return -11368175;
 		}
 
 		@Override
 		public int getModdedBiomeGrassColor(int original)
 		{
-			return -7358405;
+			return -11368175;
 		}
 
 		@Override
 		public int getModdedBiomeFoliageColor(int original)
 		{
-			return -7358405;
+			return -11368175;
 		}
 
 		protected static final WorldGenMacroneuropterisTree MACRONEUROPTERIS_TREE = new WorldGenMacroneuropterisTree(false);
@@ -115,7 +115,7 @@ public class BiomeCarboniferousCreekFernyFen extends ElementsLepidodendronMod.Mo
 		//protected static final WorldGenMacroneuropterisTree MACRONEUROPTERIS_TREE = new WorldGenMacroneuropterisTree(false);
 		protected static final WorldGenPuddles PUDDLES_GENERATOR = new WorldGenPuddles();
 		protected static final WorldGenStauropteris STAUROPTERIS_GENERATOR = new WorldGenStauropteris();
-		protected static final WorldGenSphenopteris SPHENOPTERIS_GENERATOR = new WorldGenSphenopteris();
+		protected static final WorldGenSphenopterisFern SPHENOPTERIS_GENERATOR = new WorldGenSphenopterisFern();
 		protected static final WorldGenMedullosales MEDULLOSALES_GENERATOR = new WorldGenMedullosales();
 		protected static final WorldGenAlliopteris ALLIOPTERIS_GENERATOR = new WorldGenAlliopteris();
 		protected static final WorldGenNemejcopteris NEMEJCOPTERIS_GENERATOR = new WorldGenNemejcopteris();

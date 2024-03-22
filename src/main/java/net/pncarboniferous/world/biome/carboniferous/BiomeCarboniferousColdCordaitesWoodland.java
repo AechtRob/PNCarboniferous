@@ -1,10 +1,13 @@
 
 package net.pncarboniferous.world.biome.carboniferous;
 
+import net.lepidodendron.block.*;
 import net.lepidodendron.util.EnumBiomeTypeCarboniferous;
 import net.lepidodendron.world.biome.carboniferous.BiomeCarboniferous;
 import net.lepidodendron.world.gen.*;
+import net.minecraft.block.BlockBush;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
@@ -41,7 +44,7 @@ public class BiomeCarboniferousColdCordaitesWoodland extends ElementsPNCarbonife
 			setRegistryName("lepidodendron:carboniferous_cold_woodland");
 			topBlock = Blocks.DIRT.getStateFromMeta(1);
 			fillerBlock = Blocks.DIRT.getStateFromMeta(1);
-			decorator.treesPerChunk = 8;
+			decorator.treesPerChunk = 6;
 			decorator.flowersPerChunk = 0;
 			decorator.grassPerChunk = 0;
 			decorator.mushroomsPerChunk = 0;
@@ -67,7 +70,7 @@ public class BiomeCarboniferousColdCordaitesWoodland extends ElementsPNCarbonife
 		protected static final WorldGenPrehistoricGroundCover GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCover();
 		protected static final WorldGenCecropsis CECROPSIS_GENERATOR = new WorldGenCecropsis();
 		protected static final WorldGenRhacopteris RHACOPTERIS_GENERATOR = new WorldGenRhacopteris();
-		//protected static final WorldGenSanfordiacaulis SANFORDIACAULIS_GENERATOR = new WorldGenSanfordiacaulis();
+		protected static final WorldGenSymplocopteris SYMPLOCOPTERIS_GENERATOR = new WorldGenSymplocopteris();
 
 		protected static final WorldGenIgneous IGNEOUS_GENERATOR = new WorldGenIgneous();
 		protected static final WorldGenBlackSandyDirt BLACK_SANDY_GENERATOR = new WorldGenBlackSandyDirt();
@@ -80,6 +83,8 @@ public class BiomeCarboniferousColdCordaitesWoodland extends ElementsPNCarbonife
 		protected static final WorldGenMud MUD_GENERATOR = new WorldGenMud();
 		protected static final WorldGenPuddles PUDDLES_GENERATOR = new WorldGenPuddles();
 		protected static final WorldGenSnow SNOW_GENERATOR = new WorldGenSnow();
+
+		protected static final WorldGenLeafblock LEAFBLOCK_GENERATOR = new WorldGenLeafblock();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -187,14 +192,23 @@ public class BiomeCarboniferousColdCordaitesWoodland extends ElementsPNCarbonife
 					SAND_GENERATOR.generate(worldIn, rand, worldIn.getTopSolidOrLiquidBlock(new BlockPos(pos.getX() + j, 0, pos.getZ() + k)).up());
 				}
 
-//			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-//				for (int i = 0; i < 20; ++i)
-//				{
-//					int j = rand.nextInt(16) + 8;
-//					int k = rand.nextInt(16) + 8;
-//					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-//					RUFLORIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
-//				}
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 12; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					LEAFBLOCK_GENERATOR.generate((BlockBush) BlockCordaitesSapling.block, BlockCordaitesLeaves.block.getDefaultState(), BlockCordaitesLog.block.getDefaultState().withProperty(BlockCordaitesLog.BlockCustom.FACING, EnumFacing.NORTH), worldIn, rand, pos.add(j, l, k), 0, 110);
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 12; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					LEAFBLOCK_GENERATOR.generate((BlockBush) BlockCordaitesSapling.block, BlockCordaitesDryLeaves.block.getDefaultState(), BlockCordaitesLog.block.getDefaultState().withProperty(BlockCordaitesLog.BlockCustom.FACING, EnumFacing.NORTH), worldIn, rand, pos.add(j, l, k), 0, 110);
+				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 18; ++i)
@@ -230,6 +244,15 @@ public class BiomeCarboniferousColdCordaitesWoodland extends ElementsPNCarbonife
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					RHACOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 8; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					SYMPLOCOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))

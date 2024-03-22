@@ -93,6 +93,7 @@ public class BiomeCarboniferousSwampHills extends ElementsLepidodendronMod.ModEl
 		}
 
 		protected static final WorldGenLepidodendronTree LEPIDODENDRON_TREE = new WorldGenLepidodendronTree(false);
+		protected static final WorldGenSynchysidendronTree LYCOPOD_TREE = new WorldGenSynchysidendronTree(false);
 		protected static final WorldGenSigillaria SIGILLARIA_TREE = new WorldGenSigillaria(false);
 		protected static final WorldGenBothrodendronTree BOTHRODENDRON_TREE = new WorldGenBothrodendronTree(false);
 		protected static final WorldGenDiaphorodendronTree DIAPHORODENDRON_TREE = new WorldGenDiaphorodendronTree(false);
@@ -101,7 +102,8 @@ public class BiomeCarboniferousSwampHills extends ElementsLepidodendronMod.ModEl
 		protected static final WorldGenCordaites CORDAITES_TREE = new WorldGenCordaites(false);
 		protected static final WorldGenPuddles PUDDLES_GENERATOR = new WorldGenPuddles();
 		protected static final WorldGenStauropteris STAUROPTERIS_GENERATOR = new WorldGenStauropteris();
-		protected static final WorldGenSphenopteris SPHENOPTERIS_GENERATOR = new WorldGenSphenopteris();
+		protected static final WorldGenSphenopteris CROSSOTHECA_GENERATOR = new WorldGenSphenopteris();
+		protected static final WorldGenSphenopterisFern SPHENOPTERIS_GENERATOR = new WorldGenSphenopterisFern();
 		protected static final WorldGenMedullosales MEDULLOSALES_GENERATOR = new WorldGenMedullosales();
 		protected static final WorldGenAlliopteris ALLIOPTERIS_GENERATOR = new WorldGenAlliopteris();
 		protected static final WorldGenNemejcopteris NEMEJCOPTERIS_GENERATOR = new WorldGenNemejcopteris();
@@ -148,6 +150,9 @@ public class BiomeCarboniferousSwampHills extends ElementsLepidodendronMod.ModEl
 				case 3 :
 					return DIAPHORODENDRON_TREE;
 				case 4 :
+					if (rand.nextInt(5) < 2) {
+						return LYCOPOD_TREE;
+					}
 					return VALMEYERODENDRON_TREE;
 				case 5 :
 					return CALAMITES;
@@ -321,7 +326,7 @@ public class BiomeCarboniferousSwampHills extends ElementsLepidodendronMod.ModEl
 	          	STAUROPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 	        }
 	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-	        for (int i = 0; i < 80; ++i)
+	        for (int i = 0; i < 52; ++i)
 	        {
 	            int j = rand.nextInt(16) + 8;
 	            int k = rand.nextInt(16) + 8;
