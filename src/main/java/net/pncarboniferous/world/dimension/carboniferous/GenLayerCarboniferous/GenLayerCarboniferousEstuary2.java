@@ -12,6 +12,8 @@ public class GenLayerCarboniferousEstuary2 extends GenLayer
     public  int CARBONIFEROUS_OCEAN_ID =  Biome.getIdForBiome(CARBONIFEROUS_OCEAN);
     public  Biome CARBONIFEROUS_OCEAN_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_ocean_shore"));
     public  int CARBONIFEROUS_OCEAN_SHORE_ID =  Biome.getIdForBiome(CARBONIFEROUS_OCEAN_SHORE);
+    public Biome CARBONIFEROUS_BAY = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_bay"));
+    public int CARBONIFEROUS_BAY_ID =  Biome.getIdForBiome(CARBONIFEROUS_BAY);
     public  Biome CARBONIFEROUS_HILLS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_hills"));
     public  int CARBONIFEROUS_HILLS_ID =  Biome.getIdForBiome(CARBONIFEROUS_HILLS);
     public  Biome CARBONIFEROUS_ICE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_polar_desert"));
@@ -75,7 +77,8 @@ public class GenLayerCarboniferousEstuary2 extends GenLayer
     }
 
     private boolean isOcean(int biomeID) {
-        if (biomeID == CARBONIFEROUS_OCEAN_ID || biomeID == CARBONIFEROUS_OCEAN_SHORE_ID) {
+        if (biomeID == CARBONIFEROUS_OCEAN_ID || biomeID == CARBONIFEROUS_OCEAN_SHORE_ID
+            || biomeID == CARBONIFEROUS_BAY_ID) {
             return true;
         }
         return false;

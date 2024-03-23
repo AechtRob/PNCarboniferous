@@ -30,6 +30,8 @@ public class GenLayerCarboniferousRiverBorder extends GenLayer
     public int CARBONIFEROUS_BEACH_ID =  Biome.getIdForBiome(CARBONIFEROUS_BEACH);
     public Biome CARBONIFEROUS_OCEAN_CLIFF = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_ocean_cliff"));
     public int CARBONIFEROUS_OCEAN_CLIFF_ID =  Biome.getIdForBiome(CARBONIFEROUS_OCEAN_CLIFF);
+    public Biome CARBONIFEROUS_BAY = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_bay"));
+    public int CARBONIFEROUS_BAY_ID =  Biome.getIdForBiome(CARBONIFEROUS_BAY);
 
     public Biome CARBONIFEROUS_SAVANNA = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_cold_savanna"));
     public int CARBONIFEROUS_SAVANNA_ID =  Biome.getIdForBiome(CARBONIFEROUS_SAVANNA);
@@ -120,7 +122,7 @@ public class GenLayerCarboniferousRiverBorder extends GenLayer
 
     private boolean isOceanOrBeach(int biomeID) {
         if (biomeID == CARBONIFEROUS_OCEAN_ID || biomeID == CARBONIFEROUS_OCEAN_SHORE_ID || biomeID == CARBONIFEROUS_OCEAN_CLIFF_ID
-            || biomeID == CARBONIFEROUS_BEACH_ID) {
+            || biomeID == CARBONIFEROUS_BEACH_ID || biomeID == CARBONIFEROUS_BAY_ID) {
             return true;
         }
         return false;

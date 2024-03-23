@@ -8,27 +8,29 @@ import net.minecraft.world.gen.layer.IntCache;
 public class GenLayerCarboniferousEstuary1 extends GenLayer
 {
 
-    public  Biome CARBONIFEROUS_OCEAN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_ocean"));
-    public  int CARBONIFEROUS_OCEAN_ID =  Biome.getIdForBiome(CARBONIFEROUS_OCEAN);
-    public  Biome CARBONIFEROUS_OCEAN_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_ocean_shore"));
-    public  int CARBONIFEROUS_OCEAN_SHORE_ID =  Biome.getIdForBiome(CARBONIFEROUS_OCEAN_SHORE);
-    public  Biome CARBONIFEROUS_HILLS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_hills"));
-    public  int CARBONIFEROUS_HILLS_ID =  Biome.getIdForBiome(CARBONIFEROUS_HILLS);
-    public  Biome CARBONIFEROUS_ICE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_polar_desert"));
-    public  int CARBONIFEROUS_ICE_ID =  Biome.getIdForBiome(CARBONIFEROUS_ICE);
-    public  Biome CARBONIFEROUS_ICE_EDGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_polar_desert_edge"));
-    public  int CARBONIFEROUS_ICE_EDGE_ID =  Biome.getIdForBiome(CARBONIFEROUS_ICE_EDGE);
-    public  Biome CARBONIFEROUS_ICE_SPIKES = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_polar_desert_spikes"));
-    public  int CARBONIFEROUS_ICE_SPIKES_ID =  Biome.getIdForBiome(CARBONIFEROUS_ICE_SPIKES);
-    public  Biome CARBONIFEROUS_HILLS_EDGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_hills_edge"));
-    public  int CARBONIFEROUS_HILLS_EDGE_ID =  Biome.getIdForBiome(CARBONIFEROUS_HILLS_EDGE);
-    public  Biome CARBONIFEROUS_HILLS_CENTRE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_hills_high"));
-    public  int CARBONIFEROUS_HILLS_CENTRE_ID =  Biome.getIdForBiome(CARBONIFEROUS_HILLS_CENTRE);
+     public Biome CARBONIFEROUS_OCEAN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_ocean"));
+     public int CARBONIFEROUS_OCEAN_ID =  Biome.getIdForBiome(CARBONIFEROUS_OCEAN);
+     public Biome CARBONIFEROUS_OCEAN_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_ocean_shore"));
+     public int CARBONIFEROUS_OCEAN_SHORE_ID =  Biome.getIdForBiome(CARBONIFEROUS_OCEAN_SHORE);
+     public Biome CARBONIFEROUS_HILLS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_hills"));
+     public int CARBONIFEROUS_HILLS_ID =  Biome.getIdForBiome(CARBONIFEROUS_HILLS);
+     public Biome CARBONIFEROUS_ICE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_polar_desert"));
+     public int CARBONIFEROUS_ICE_ID =  Biome.getIdForBiome(CARBONIFEROUS_ICE);
+     public Biome CARBONIFEROUS_ICE_EDGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_polar_desert_edge"));
+     public int CARBONIFEROUS_ICE_EDGE_ID =  Biome.getIdForBiome(CARBONIFEROUS_ICE_EDGE);
+     public Biome CARBONIFEROUS_ICE_SPIKES = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_polar_desert_spikes"));
+     public int CARBONIFEROUS_ICE_SPIKES_ID =  Biome.getIdForBiome(CARBONIFEROUS_ICE_SPIKES);
+     public Biome CARBONIFEROUS_HILLS_EDGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_hills_edge"));
+     public int CARBONIFEROUS_HILLS_EDGE_ID =  Biome.getIdForBiome(CARBONIFEROUS_HILLS_EDGE);
+     public Biome CARBONIFEROUS_HILLS_CENTRE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_hills_high"));
+     public int CARBONIFEROUS_HILLS_CENTRE_ID =  Biome.getIdForBiome(CARBONIFEROUS_HILLS_CENTRE);
     public Biome CARBONIFEROUS_SAVANNA = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_cold_savanna"));
     public int CARBONIFEROUS_SAVANNA_ID =  Biome.getIdForBiome(CARBONIFEROUS_SAVANNA);
 
-    public  Biome CARBONIFEROUS_ESTUARY = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_estuary_helper"));
-    public  int CARBONIFEROUS_ESTUARY_ID =  Biome.getIdForBiome(CARBONIFEROUS_ESTUARY);
+     public Biome CARBONIFEROUS_ESTUARY = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_estuary_helper"));
+     public int CARBONIFEROUS_ESTUARY_ID =  Biome.getIdForBiome(CARBONIFEROUS_ESTUARY);
+     public Biome CARBONIFEROUS_BAY = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_bay"));
+     public int CARBONIFEROUS_BAY_ID =  Biome.getIdForBiome(CARBONIFEROUS_BAY);
 
     public GenLayerCarboniferousEstuary1(long seed, GenLayer genLayer)
     {
@@ -72,7 +74,12 @@ public class GenLayerCarboniferousEstuary1 extends GenLayer
                         else
                         {
                             if (nextInt(3) == 0) {
-                                aint1[j + i * areaWidth] = CARBONIFEROUS_ESTUARY_ID;
+                                if (nextInt(2) == 0) {
+                                    aint1[j + i * areaWidth] = CARBONIFEROUS_ESTUARY_ID;
+                                }
+                                else {
+                                    aint1[j + i * areaWidth] = CARBONIFEROUS_BAY_ID;
+                                }
                             }
                             else {
                                 aint1[j + i * areaWidth] = k;
