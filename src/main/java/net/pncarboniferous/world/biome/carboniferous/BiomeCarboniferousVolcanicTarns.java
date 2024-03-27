@@ -64,6 +64,7 @@ public class BiomeCarboniferousVolcanicTarns extends ElementsPNCarboniferousMod.
 
 		protected static final WorldGenStauropteris STAUROPTERIS_GENERATOR = new WorldGenStauropteris();
 		protected static final WorldGenSphenophyllales SPHENOPHYLLALES_GENERATOR = new WorldGenSphenophyllales();
+		protected static final WorldGenSphenophyllalesShrubby SPHENOPHYLLALES_STURDY_GENERATOR = new WorldGenSphenophyllalesShrubby();
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
 		protected static final WorldGenPrehistoricGroundCover GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCover();
 		protected static final WorldGenSanfordiacaulis SANFORDIACAULIS_GENERATOR = new WorldGenSanfordiacaulis();
@@ -227,6 +228,15 @@ public class BiomeCarboniferousVolcanicTarns extends ElementsPNCarboniferousMod.
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					SPHENOPHYLLALES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), true);
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 4; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					SPHENOPHYLLALES_STURDY_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))

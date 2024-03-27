@@ -44,7 +44,7 @@ public class BiomeCarboniferousSwampFlat extends ElementsLepidodendronMod.ModEle
 
 	static class BiomeGenCustom extends BiomeCarboniferous {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Carboniferous Coal Swamp FLAT").setRainfall(0.5F).setBaseHeight(-0.2F).setHeightVariation(0.02F).setTemperature(0.95F).setRainfall(0.9F).setWaterColor(3906905));
+			super(new BiomeProperties("Carboniferous Coal Swamp").setRainfall(0.5F).setBaseHeight(-0.2F).setHeightVariation(0.02F).setTemperature(0.95F).setRainfall(0.9F).setWaterColor(3906905));
 			setRegistryName("lepidodendron:carboniferous_swamp_flat");
 			topBlock = BlockPrehistoricGroundLush.block.getDefaultState();
 			fillerBlock = Blocks.DIRT.getStateFromMeta(1);

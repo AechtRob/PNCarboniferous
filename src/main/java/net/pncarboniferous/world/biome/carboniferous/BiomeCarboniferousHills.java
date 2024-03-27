@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -123,6 +124,7 @@ public class BiomeCarboniferousHills extends ElementsLepidodendronMod.ModElement
 		protected static final WorldGenLesleya LESLEYA_GENERATOR = new WorldGenLesleya();
 		protected static final WorldGenFungiSimple SIMPLE_FUNGI_GENERATOR = new WorldGenFungiSimple();
 		protected static final WorldGenClubmoss CLUBMOSS_GENERATOR = new WorldGenClubmoss();
+		protected static final WorldGenSphenophyllalesShrubby SPHENOPHYLLALES_STURDY_GENERATOR = new WorldGenSphenophyllalesShrubby();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -279,6 +281,15 @@ public class BiomeCarboniferousHills extends ElementsLepidodendronMod.ModElement
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					LESLEYA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), 60 , 255);
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 4; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					SPHENOPHYLLALES_STURDY_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
 

@@ -2,6 +2,7 @@
 package net.pncarboniferous.world.biome.carboniferous;
 
 import net.lepidodendron.ElementsLepidodendronMod;
+import net.lepidodendron.block.BlockCoarseSandyDirt;
 import net.lepidodendron.block.BlockCoral;
 import net.lepidodendron.block.BlockPrehistoricGroundLush;
 import net.lepidodendron.util.EnumBiomeTypeCarboniferous;
@@ -45,8 +46,8 @@ public class BiomeCarboniferousOcean extends ElementsLepidodendronMod.ModElement
 		public BiomeGenCustom() {
 			super(new Biome.BiomeProperties("Carboniferous Deep Ocean").setRainfall(0.5F).setBaseHeight(-1.85F).setHeightVariation(0.21F));
 			setRegistryName("lepidodendron:carboniferous_ocean");
-			topBlock = BlockPrehistoricGroundLush.block.getDefaultState();
-			fillerBlock = Blocks.SAND.getStateFromMeta(0);
+			this.topBlock = BlockCoarseSandyDirt.block.getDefaultState();
+			this.fillerBlock = Blocks.SAND.getStateFromMeta(0);
 			decorator.treesPerChunk = -999;
 			decorator.flowersPerChunk = 0;
 			decorator.grassPerChunk = 0;

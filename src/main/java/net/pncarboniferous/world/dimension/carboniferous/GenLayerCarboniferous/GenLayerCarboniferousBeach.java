@@ -64,7 +64,7 @@ public class GenLayerCarboniferousBeach extends GenLayer
                         && k != CARBONIFEROUS_MARSH_ID
                         && k != CARBONIFEROUS_ESTUARY_ID
                         && k != CARBONIFEROUS_ESTUARY_HELPER_ID
-                        && k != CARBONIFEROUS_BAY_ID
+                        //&& k != CARBONIFEROUS_BAY_ID
                 )
                 {
                     if (!isOcean(k))
@@ -100,7 +100,8 @@ public class GenLayerCarboniferousBeach extends GenLayer
 
     private boolean isOcean(int biomeID) {
         if (biomeID == CARBONIFEROUS_OCEAN_ID || biomeID == CARBONIFEROUS_OCEAN_SHORE_ID
-            || biomeID == CARBONIFEROUS_BAY_ID) {
+            //|| biomeID == CARBONIFEROUS_BAY_ID
+        ) {
             return true;
         }
         return false;
