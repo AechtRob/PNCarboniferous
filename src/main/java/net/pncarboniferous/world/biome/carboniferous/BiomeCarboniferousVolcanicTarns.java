@@ -68,6 +68,7 @@ public class BiomeCarboniferousVolcanicTarns extends ElementsPNCarboniferousMod.
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
 		protected static final WorldGenPrehistoricGroundCover GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCover();
 		protected static final WorldGenSanfordiacaulis SANFORDIACAULIS_GENERATOR = new WorldGenSanfordiacaulis();
+		protected static final WorldGenCalamopitys CALAMOPITYS_GENERATOR = new WorldGenCalamopitys();
 
 		protected static final WorldGenIgneous IGNEOUS_GENERATOR = new WorldGenIgneous();
 		protected static final WorldGenBlackSandyDirt BLACK_SANDY_GENERATOR = new WorldGenBlackSandyDirt();
@@ -212,7 +213,7 @@ public class BiomeCarboniferousVolcanicTarns extends ElementsPNCarboniferousMod.
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 8; ++i)
+				for (int i = 0; i < 6; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
@@ -220,6 +221,14 @@ public class BiomeCarboniferousVolcanicTarns extends ElementsPNCarboniferousMod.
 					SANFORDIACAULIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 8; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					CALAMOPITYS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 256; ++i)

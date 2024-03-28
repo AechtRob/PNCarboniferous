@@ -49,6 +49,7 @@ public class GenLayerCarboniferous {
 
         biomes = new GenLayerCarboniferousHillsCentreExpand(77L, biomes);
         biomes = new GenLayerCarboniferousIceSpikes(1000L, biomes);
+        biomes = new GenLayerDiversifyCarboniferousAshBig(1807L, biomes);
         biomes = new GenLayerSmooth(703L, biomes);
 
         biomes = new GenLayerCarboniferousTarnCratersWater(191L, biomes);
@@ -64,9 +65,11 @@ public class GenLayerCarboniferous {
 
         biomes = new GenLayerCarboniferousTarnCratersWaterSmall(199L, biomes);
         biomes = new GenLayerCarboniferousRiverBorder(325L, biomes);
+        biomes = new GenLayerDiversifyCarboniferousAsh(1206L, biomes);
         biomes = new GenLayerSmooth(706L, biomes);
         biomes = new GenLayerFuzzyZoom(1002L, biomes);
         biomes = new GenLayerCarboniferousRiverBorder(326L, biomes);
+        biomes = new GenLayerDiversifyCarboniferousAsh(320L, biomes);
         biomes = new GenLayerZoom(1006L, biomes);
 
         //Build and superimpose creeks:

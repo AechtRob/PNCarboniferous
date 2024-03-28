@@ -50,6 +50,8 @@ public class GenLayerCarboniferousRiverBorder extends GenLayer
     public int CARBONIFEROUS_TARNS_CRATER_ID =  Biome.getIdForBiome(CARBONIFEROUS_CRATER);
     public Biome CARBONIFEROUS_CRATER_WATER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_volcanic_tarns_crater_water"));
     public int CARBONIFEROUS_TARNS_CRATER_WATER_ID =  Biome.getIdForBiome(CARBONIFEROUS_CRATER_WATER);
+    public Biome CARBONIFEROUS_ASH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_volcanic_tarns_ash"));
+    public int CARBONIFEROUS_ASH_ID =  Biome.getIdForBiome(CARBONIFEROUS_ASH);
 
 
     public GenLayerCarboniferousRiverBorder(long seed, GenLayer genLayer)
@@ -152,7 +154,8 @@ public class GenLayerCarboniferousRiverBorder extends GenLayer
     private boolean isTarns(int biomeID) {
         if (biomeID == CARBONIFEROUS_TARNS_ID
                 || biomeID == CARBONIFEROUS_TARNS_CRATER_ID
-                || biomeID == CARBONIFEROUS_TARNS_CRATER_WATER_ID) {
+                || biomeID == CARBONIFEROUS_TARNS_CRATER_WATER_ID
+                || biomeID == CARBONIFEROUS_ASH_ID) {
             return true;
         }
         return false;
@@ -160,6 +163,7 @@ public class GenLayerCarboniferousRiverBorder extends GenLayer
 
     private boolean isRequiredforTarns(int biomeID) {
         if (biomeID != CARBONIFEROUS_TARNS_ID
+                && biomeID != CARBONIFEROUS_ASH_ID
                 && biomeID != CARBONIFEROUS_TARNS_CRATER_ID
                 && biomeID != CARBONIFEROUS_TARNS_CRATER_WATER_ID
                 && biomeID != CARBONIFEROUS_SAVANNA_ID) {

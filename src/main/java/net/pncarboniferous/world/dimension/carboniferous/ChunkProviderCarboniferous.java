@@ -497,6 +497,17 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
                             }
                         }
 
+                        //In the Ashfield, diversify the Ash:
+                        if (biome == BiomeCarboniferousVolcanicTarnsAsh.biome
+                        ) {
+                            if (rand.nextInt(3) == 0) {
+                                iblockstate = BlockVolcanicAshLight.block.getDefaultState();
+                            }
+                            if (rand.nextInt(5) == 0) {
+                                iblockstate = BlockVolcanicAshDark.block.getDefaultState();
+                            }
+                        }
+
                         //For the Hills biome, make mountains drier:
                         if (biome == BiomeCarboniferousHills.biome
                         ) {
