@@ -2,8 +2,7 @@
 package net.pncarboniferous.world.biome.carboniferous;
 
 import net.lepidodendron.ElementsLepidodendronMod;
-import net.lepidodendron.block.BlockBurntLog;
-import net.lepidodendron.block.BlockPrehistoricGroundLush;
+import net.lepidodendron.block.*;
 import net.lepidodendron.util.EnumBiomeTypeCarboniferous;
 import net.lepidodendron.world.biome.carboniferous.BiomeCarboniferous;
 import net.lepidodendron.world.gen.*;
@@ -109,11 +108,12 @@ public class BiomeCarboniferousSwampBurnt extends ElementsLepidodendronMod.ModEl
 		protected static final WorldGenMud MUD_GENERATOR = new WorldGenMud();
 		public static final PropertyEnum<BlockDoublePlant.EnumPlantType> VARIANT = PropertyEnum.<BlockDoublePlant.EnumPlantType>create("variant", BlockDoublePlant.EnumPlantType.class);
 		protected static final WorldGenFern FERN_GENERATOR = new WorldGenFern();
-		protected static final WorldGenStauropteris STAUROPTERIS_GENERATOR = new WorldGenStauropteris();
+//		protected static final WorldGenStauropteris STAUROPTERIS_GENERATOR = new WorldGenStauropteris();
 		protected static final WorldGenFungiSimple SIMPLE_FUNGI_GENERATOR = new WorldGenFungiSimple();
 		protected static final WorldGenPeat PEAT_GENERATOR = new WorldGenPeat();
-		protected static final WorldGenClubmoss CLUBMOSS_GENERATOR = new WorldGenClubmoss();
-		protected static final WorldGenCecropsis CECROPSIS_GENERATOR = new WorldGenCecropsis();
+//		protected static final WorldGenClubmoss CLUBMOSS_GENERATOR = new WorldGenClubmoss();
+//		protected static final WorldGenCecropsis CECROPSIS_GENERATOR = new WorldGenCecropsis();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -213,7 +213,7 @@ public class BiomeCarboniferousSwampBurnt extends ElementsLepidodendronMod.ModEl
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					CECROPSIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockCecropsis.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 	        
 
@@ -251,7 +251,7 @@ public class BiomeCarboniferousSwampBurnt extends ElementsLepidodendronMod.ModEl
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					STAUROPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockStauropteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -278,7 +278,7 @@ public class BiomeCarboniferousSwampBurnt extends ElementsLepidodendronMod.ModEl
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					CLUBMOSS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockClubmoss.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 

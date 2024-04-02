@@ -91,14 +91,15 @@ public class BiomeCarboniferousSwampRiverEdge extends ElementsLepidodendronMod.M
 		}
 
 		protected static final WorldGenPuddles PUDDLES_GENERATOR = new WorldGenPuddles();
-		protected static final WorldGenStauropteris STAUROPTERIS_GENERATOR = new WorldGenStauropteris();
-		protected static final WorldGenSphenopteris CROSSOTHECA_GENERATOR = new WorldGenSphenopteris();
-		protected static final WorldGenSphenopterisFern SPHENOPTERIS_GENERATOR = new WorldGenSphenopterisFern();
-		protected static final WorldGenAlliopteris ALLIOPTERIS_GENERATOR = new WorldGenAlliopteris();
-		protected static final WorldGenNemejcopteris NEMEJCOPTERIS_GENERATOR = new WorldGenNemejcopteris();
+//		protected static final WorldGenStauropteris STAUROPTERIS_GENERATOR = new WorldGenStauropteris();
+//		protected static final WorldGenSphenopteris CROSSOTHECA_GENERATOR = new WorldGenSphenopteris();
+//		protected static final WorldGenSphenopterisFern SPHENOPTERIS_GENERATOR = new WorldGenSphenopterisFern();
+//		protected static final WorldGenAlliopteris ALLIOPTERIS_GENERATOR = new WorldGenAlliopteris();
+//		protected static final WorldGenNemejcopteris NEMEJCOPTERIS_GENERATOR = new WorldGenNemejcopteris();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
 		protected static final WorldGenSelaginella SELAGINELLA_GENERATOR = new WorldGenSelaginella();
-		protected static final WorldGenSphenophyllales SPHENOPHYLLALES_GENERATOR = new WorldGenSphenophyllales();
+//		protected static final WorldGenSphenophyllales SPHENOPHYLLALES_GENERATOR = new WorldGenSphenophyllales();
 		protected static final WorldGenWaterHorsetail WATER_HORSETAIL_GENERATOR = new WorldGenWaterHorsetail();
 		protected static final WorldGenPrehistoricGroundCoverLush GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCoverLush();
 		protected static final WorldGenFern FERN_GENERATOR = new WorldGenFern();
@@ -107,7 +108,7 @@ public class BiomeCarboniferousSwampRiverEdge extends ElementsLepidodendronMod.M
 		protected static final WorldGenFungiSimple SIMPLE_FUNGI_GENERATOR = new WorldGenFungiSimple();
 		protected static final WorldGenSlimyAlgae SLIMY_GENERATOR = new WorldGenSlimyAlgae();
 		protected static final WorldGenPeat PEAT_GENERATOR = new WorldGenPeat();
-		protected static final WorldGenCecropsis CECROPSIS_GENERATOR = new WorldGenCecropsis();
+//		protected static final WorldGenCecropsis CECROPSIS_GENERATOR = new WorldGenCecropsis();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -152,7 +153,7 @@ public class BiomeCarboniferousSwampRiverEdge extends ElementsLepidodendronMod.M
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					CECROPSIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockCecropsis.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 			
 
@@ -181,7 +182,7 @@ public class BiomeCarboniferousSwampRiverEdge extends ElementsLepidodendronMod.M
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					ALLIOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockAlliopteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -190,7 +191,7 @@ public class BiomeCarboniferousSwampRiverEdge extends ElementsLepidodendronMod.M
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					NEMEJCOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockNemejcopteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -199,7 +200,7 @@ public class BiomeCarboniferousSwampRiverEdge extends ElementsLepidodendronMod.M
 	            int j = rand.nextInt(16) + 8;
 	            int k = rand.nextInt(16) + 8;
 	            int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-	          	STAUROPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+	          	PLANT_GENERATOR.generate(BlockStauropteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 	        }
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -208,7 +209,7 @@ public class BiomeCarboniferousSwampRiverEdge extends ElementsLepidodendronMod.M
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					SPHENOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockSphenopteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 	        for (int i = 0; i < 24; ++i)
@@ -216,7 +217,7 @@ public class BiomeCarboniferousSwampRiverEdge extends ElementsLepidodendronMod.M
 	            int j = rand.nextInt(16) + 8;
 	            int k = rand.nextInt(16) + 8;
 	            int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-	            SPHENOPHYLLALES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+	            PLANT_GENERATOR.generate(BlockSphenophyllales1.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 	        }
 	        
 	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

@@ -2,6 +2,7 @@
 package net.pncarboniferous.world.biome.carboniferous;
 
 import net.lepidodendron.ElementsLepidodendronMod;
+import net.lepidodendron.block.BlockThucydia;
 import net.lepidodendron.util.EnumBiomeTypeCarboniferous;
 import net.lepidodendron.world.biome.carboniferous.BiomeCarboniferous;
 import net.lepidodendron.world.gen.*;
@@ -94,7 +95,8 @@ public class BiomeCarboniferousIceEdge extends ElementsLepidodendronMod.ModEleme
 		protected static final WorldGenIceOnSea ICE_GENERATOR = new WorldGenIceOnSea();
 		protected static final WorldGenPrehistoricGroundCover GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCover();
 		protected static final WorldGenCoarseDirt TOPSOIL_GENERATOR = new WorldGenCoarseDirt();
-		protected static final WorldGenThucydia THUCYDIA_GENERATOR = new WorldGenThucydia();
+//		protected static final WorldGenThucydia THUCYDIA_GENERATOR = new WorldGenThucydia();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -155,12 +157,12 @@ public class BiomeCarboniferousIceEdge extends ElementsLepidodendronMod.ModEleme
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 3; ++i)
+				for (int i = 0; i < 2; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					THUCYDIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), worldIn.getSeaLevel(), 90);
+					PLANT_GENERATOR.generate(BlockThucydia.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), worldIn.getSeaLevel(), 90, false, false, true);
 				}
 
 	        super.decorate(worldIn, rand, pos);

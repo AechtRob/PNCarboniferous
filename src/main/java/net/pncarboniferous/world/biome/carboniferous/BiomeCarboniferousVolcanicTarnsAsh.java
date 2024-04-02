@@ -65,7 +65,9 @@ public class BiomeCarboniferousVolcanicTarnsAsh extends ElementsPNCarboniferousM
 		
 		protected static final WorldGenGravelNearWater GRAVEL_GENERATOR = new WorldGenGravelNearWater();
 
-		protected static final WorldGenCalathospermum CALATHOSPERMUM_GENERATOR = new WorldGenCalathospermum();
+//		protected static final WorldGenCalathospermum CALATHOSPERMUM_GENERATOR = new WorldGenCalathospermum();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
+
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -123,12 +125,12 @@ public class BiomeCarboniferousVolcanicTarnsAsh extends ElementsPNCarboniferousM
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 28; ++i)
+				for (int i = 0; i < 520; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					CALATHOSPERMUM_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockCalathospermum.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 

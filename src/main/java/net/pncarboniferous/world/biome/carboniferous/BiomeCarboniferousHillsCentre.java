@@ -2,6 +2,8 @@
 package net.pncarboniferous.world.biome.carboniferous;
 
 import net.lepidodendron.ElementsLepidodendronMod;
+import net.lepidodendron.block.BlockAlliopteris;
+import net.lepidodendron.block.BlockNemejcopteris;
 import net.lepidodendron.util.EnumBiomeTypeCarboniferous;
 import net.lepidodendron.world.biome.carboniferous.BiomeCarboniferous;
 import net.lepidodendron.world.gen.*;
@@ -100,10 +102,11 @@ public class BiomeCarboniferousHillsCentre extends ElementsLepidodendronMod.ModE
 		protected static final WorldGenCoarseDirt TOPSOIL_GENERATOR = new WorldGenCoarseDirt();
 		//protected static final WorldGenLushPrehistoricGround LUSH_GROUND_GENERATOR = new WorldGenLushPrehistoricGround();
 		//protected static final WorldGenStauropteris STAUROPTERIS_GENERATOR = new WorldGenStauropteris();
-		protected static final WorldGenSphenopterisFern SPHENOPTERIS_GENERATOR = new WorldGenSphenopterisFern();
+//		protected static final WorldGenSphenopterisFern SPHENOPTERIS_GENERATOR = new WorldGenSphenopterisFern();
 		//protected static final WorldGenMedullosales MEDULLOSALES_GENERATOR = new WorldGenMedullosales();
-		protected static final WorldGenAlliopteris ALLIOPTERIS_GENERATOR = new WorldGenAlliopteris();
-		protected static final WorldGenNemejcopteris NEMEJCOPTERIS_GENERATOR = new WorldGenNemejcopteris();
+//		protected static final WorldGenAlliopteris ALLIOPTERIS_GENERATOR = new WorldGenAlliopteris();
+//		protected static final WorldGenNemejcopteris NEMEJCOPTERIS_GENERATOR = new WorldGenNemejcopteris();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 		protected static final WorldGenRufloria RUFLORIA_GENERATOR = new WorldGenRufloria();
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
 		protected static final WorldGenSelaginella SELAGINELLA_GENERATOR = new WorldGenSelaginella();
@@ -156,7 +159,7 @@ public class BiomeCarboniferousHillsCentre extends ElementsLepidodendronMod.ModE
 				int j = rand.nextInt(16) + 8;
 				int k = rand.nextInt(16) + 8;
 				int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-				ALLIOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				PLANT_GENERATOR.generate(BlockAlliopteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 			}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -165,7 +168,7 @@ public class BiomeCarboniferousHillsCentre extends ElementsLepidodendronMod.ModE
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					NEMEJCOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockNemejcopteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

@@ -64,14 +64,15 @@ public class BiomeCarboniferousColdCordaitesWoodland extends ElementsPNCarbonife
 		protected static final WorldGenCordaitesDry CORDAITES_DRY = new WorldGenCordaitesDry(false);
 
 		//protected static final WorldGenRufloria RUFLORIA_GENERATOR = new WorldGenRufloria();
-		protected static final WorldGenStauropteris STAUROPTERIS_GENERATOR = new WorldGenStauropteris();
-		protected static final WorldGenSphenophyllales SPHENOPHYLLALES_GENERATOR = new WorldGenSphenophyllales();
+//		protected static final WorldGenStauropteris STAUROPTERIS_GENERATOR = new WorldGenStauropteris();
+//		protected static final WorldGenSphenophyllales SPHENOPHYLLALES_GENERATOR = new WorldGenSphenophyllales();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
 		protected static final WorldGenPrehistoricGroundCover GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCover();
-		protected static final WorldGenSphenophyllalesShrubby SPHENOPHYLLALES_STURDY_GENERATOR = new WorldGenSphenophyllalesShrubby();
-		protected static final WorldGenCecropsis CECROPSIS_GENERATOR = new WorldGenCecropsis();
-		protected static final WorldGenRhacopteris RHACOPTERIS_GENERATOR = new WorldGenRhacopteris();
-		protected static final WorldGenSymplocopteris SYMPLOCOPTERIS_GENERATOR = new WorldGenSymplocopteris();
+//		protected static final WorldGenSphenophyllalesShrubby SPHENOPHYLLALES_STURDY_GENERATOR = new WorldGenSphenophyllalesShrubby();
+//		protected static final WorldGenCecropsis CECROPSIS_GENERATOR = new WorldGenCecropsis();
+//		protected static final WorldGenRhacopteris RHACOPTERIS_GENERATOR = new WorldGenRhacopteris();
+//		protected static final WorldGenSymplocopteris SYMPLOCOPTERIS_GENERATOR = new WorldGenSymplocopteris();
 
 		protected static final WorldGenIgneous IGNEOUS_GENERATOR = new WorldGenIgneous();
 		protected static final WorldGenBlackSandyDirt BLACK_SANDY_GENERATOR = new WorldGenBlackSandyDirt();
@@ -217,7 +218,7 @@ public class BiomeCarboniferousColdCordaitesWoodland extends ElementsPNCarbonife
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					STAUROPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockStauropteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 //			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -226,7 +227,7 @@ public class BiomeCarboniferousColdCordaitesWoodland extends ElementsPNCarbonife
 //					int j = rand.nextInt(16) + 8;
 //					int k = rand.nextInt(16) + 8;
 //					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-//					CECROPSIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+//					PLANT_GENERATOR.generate(BlockCecropsis.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 //				}
 
 //			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -244,7 +245,7 @@ public class BiomeCarboniferousColdCordaitesWoodland extends ElementsPNCarbonife
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					RHACOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockRhacopteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -253,7 +254,7 @@ public class BiomeCarboniferousColdCordaitesWoodland extends ElementsPNCarbonife
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					SYMPLOCOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockSymplocopteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -262,7 +263,7 @@ public class BiomeCarboniferousColdCordaitesWoodland extends ElementsPNCarbonife
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					SPHENOPHYLLALES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockSphenophyllales1.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -271,7 +272,7 @@ public class BiomeCarboniferousColdCordaitesWoodland extends ElementsPNCarbonife
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					SPHENOPHYLLALES_STURDY_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockSphenophyllales2.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))

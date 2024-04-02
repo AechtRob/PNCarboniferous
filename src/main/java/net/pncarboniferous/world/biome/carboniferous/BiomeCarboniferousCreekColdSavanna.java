@@ -1,6 +1,10 @@
 
 package net.pncarboniferous.world.biome.carboniferous;
 
+import net.lepidodendron.block.BlockBotrychiopsis;
+import net.lepidodendron.block.BlockSphenophyllales1;
+import net.lepidodendron.block.BlockSphenopterisSeed;
+import net.lepidodendron.block.BlockStauropteris;
 import net.lepidodendron.util.EnumBiomeTypeCarboniferous;
 import net.lepidodendron.world.biome.carboniferous.BiomeCarboniferous;
 import net.lepidodendron.world.gen.*;
@@ -59,8 +63,9 @@ public class BiomeCarboniferousCreekColdSavanna extends ElementsPNCarboniferousM
 		protected static final WorldGenNullTree NULL_TREE = new WorldGenNullTree(false);
 		//This tree generator already has some alternative trees for this biome in its gen code
 
-		protected static final WorldGenStauropteris STAUROPTERIS_GENERATOR = new WorldGenStauropteris();
-		protected static final WorldGenSphenopterisSeed SPHENOPTERIS_SEED_GENERATOR = new WorldGenSphenopterisSeed();
+//		protected static final WorldGenStauropteris STAUROPTERIS_GENERATOR = new WorldGenStauropteris();
+//		protected static final WorldGenSphenopterisSeed SPHENOPTERIS_SEED_GENERATOR = new WorldGenSphenopterisSeed();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
 		protected static final WorldGenPrehistoricGroundCover GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCover();
 
@@ -69,14 +74,14 @@ public class BiomeCarboniferousCreekColdSavanna extends ElementsPNCarboniferousM
 		protected static final WorldGenSandyDirt SANDY_GENERATOR = new WorldGenSandyDirt();
 		//protected static final WorldGenPrehistoricGround DIRT_GENERATOR = new WorldGenPrehistoricGround();
 		protected static final WorldGenSlimyAlgae SLIMY_GENERATOR = new WorldGenSlimyAlgae();
-		protected static final WorldGenSphenophyllales SPHENOPHYLLALES_GENERATOR = new WorldGenSphenophyllales();
+//		protected static final WorldGenSphenophyllales SPHENOPHYLLALES_GENERATOR = new WorldGenSphenophyllales();
 
 		protected static final WorldGenSandNearWater SAND_GENERATOR = new WorldGenSandNearWater();
 		protected static final WorldGenMud MUD_GENERATOR = new WorldGenMud();
 		protected static final WorldGenPuddles PUDDLES_GENERATOR = new WorldGenPuddles();
 
 		protected static final WorldGenBumbudendron BUMBUDENDRON_GENERATOR = new WorldGenBumbudendron();
-		protected static final WorldGenBotrychiopsis BOTRYCHIOPSIS_GENERATOR = new WorldGenBotrychiopsis();
+//		protected static final WorldGenBotrychiopsis BOTRYCHIOPSIS_GENERATOR = new WorldGenBotrychiopsis();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -161,7 +166,7 @@ public class BiomeCarboniferousCreekColdSavanna extends ElementsPNCarboniferousM
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					BOTRYCHIOPSIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockBotrychiopsis.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -170,7 +175,7 @@ public class BiomeCarboniferousCreekColdSavanna extends ElementsPNCarboniferousM
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					SPHENOPHYLLALES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockSphenophyllales1.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -179,7 +184,7 @@ public class BiomeCarboniferousCreekColdSavanna extends ElementsPNCarboniferousM
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					STAUROPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockStauropteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -188,7 +193,7 @@ public class BiomeCarboniferousCreekColdSavanna extends ElementsPNCarboniferousM
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					SPHENOPTERIS_SEED_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockSphenopterisSeed.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))

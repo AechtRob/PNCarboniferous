@@ -1,9 +1,7 @@
 
 package net.pncarboniferous.world.biome.carboniferous;
 
-import net.lepidodendron.block.BlockCoarseSandyDirt;
-import net.lepidodendron.block.BlockDeadLycopod;
-import net.lepidodendron.block.BlockLavaRock;
+import net.lepidodendron.block.*;
 import net.lepidodendron.util.EnumBiomeTypeCarboniferous;
 import net.lepidodendron.world.biome.carboniferous.BiomeCarboniferous;
 import net.lepidodendron.world.gen.*;
@@ -62,23 +60,24 @@ public class BiomeCarboniferousVolcanicTarns extends ElementsPNCarboniferousMod.
 		protected static final WorldGenArchaeopterisTree ARCHAEOPTERIS_TREE = new WorldGenArchaeopterisTree(false);
 		protected static final WorldGenPitysTree PITYS_TREE = new WorldGenPitysTree(false);
 
-		protected static final WorldGenStauropteris STAUROPTERIS_GENERATOR = new WorldGenStauropteris();
-		protected static final WorldGenSphenophyllales SPHENOPHYLLALES_GENERATOR = new WorldGenSphenophyllales();
-		protected static final WorldGenSphenophyllalesShrubby SPHENOPHYLLALES_STURDY_GENERATOR = new WorldGenSphenophyllalesShrubby();
+//		protected static final WorldGenStauropteris STAUROPTERIS_GENERATOR = new WorldGenStauropteris();
+//		protected static final WorldGenSphenophyllales SPHENOPHYLLALES_GENERATOR = new WorldGenSphenophyllales();
+//		protected static final WorldGenSphenophyllalesShrubby SPHENOPHYLLALES_STURDY_GENERATOR = new WorldGenSphenophyllalesShrubby();
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
 		protected static final WorldGenPrehistoricGroundCover GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCover();
 		protected static final WorldGenSanfordiacaulis SANFORDIACAULIS_GENERATOR = new WorldGenSanfordiacaulis();
-		protected static final WorldGenCalamopitys CALAMOPITYS_GENERATOR = new WorldGenCalamopitys();
+//		protected static final WorldGenCalamopitys CALAMOPITYS_GENERATOR = new WorldGenCalamopitys();
 
 		protected static final WorldGenIgneous IGNEOUS_GENERATOR = new WorldGenIgneous();
 		protected static final WorldGenBlackSandyDirt BLACK_SANDY_GENERATOR = new WorldGenBlackSandyDirt();
 		protected static final WorldGenSandyDirt SANDY_GENERATOR = new WorldGenSandyDirt();
 		protected static final WorldGenPrehistoricGround DIRT_GENERATOR = new WorldGenPrehistoricGround();
 		protected static final WorldGenSlimyAlgae SLIMY_GENERATOR = new WorldGenSlimyAlgae();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
 		protected static final WorldGenSandNearWater SAND_GENERATOR = new WorldGenSandNearWater();
 		protected static final WorldGenDriedMud MUD_GENERATOR = new WorldGenDriedMud();
-		protected static final WorldGenSphenopterisSeed SPHENOPTERIS_GENERATOR = new WorldGenSphenopterisSeed();
+//		protected static final WorldGenSphenopterisSeed SPHENOPTERIS_GENERATOR = new WorldGenSphenopterisSeed();
 		protected static final WorldGenDeadBush LYCOPSID_GENERATOR = new WorldGenDeadBush();
 
 		protected static final WorldGenGravelNearWater GRAVEL_GENERATOR = new WorldGenGravelNearWater();
@@ -200,7 +199,7 @@ public class BiomeCarboniferousVolcanicTarns extends ElementsPNCarboniferousMod.
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					STAUROPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), true);
+					PLANT_GENERATOR.generate(BlockStauropteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 0, 255, true);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -209,7 +208,7 @@ public class BiomeCarboniferousVolcanicTarns extends ElementsPNCarboniferousMod.
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					SPHENOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockSphenopterisSeed.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -227,7 +226,7 @@ public class BiomeCarboniferousVolcanicTarns extends ElementsPNCarboniferousMod.
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					CALAMOPITYS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockCalamopitys.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -236,7 +235,7 @@ public class BiomeCarboniferousVolcanicTarns extends ElementsPNCarboniferousMod.
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					SPHENOPHYLLALES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), true);
+					PLANT_GENERATOR.generate(BlockSphenophyllales1.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 0, 255, true);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -245,7 +244,7 @@ public class BiomeCarboniferousVolcanicTarns extends ElementsPNCarboniferousMod.
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					SPHENOPHYLLALES_STURDY_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockSphenophyllales2.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
