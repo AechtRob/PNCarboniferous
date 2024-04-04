@@ -24,7 +24,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.function.Supplier;
 
-@Mod(modid = PNCarboniferousMod.MODID, name = PNCarboniferousMod.NAME, version = PNCarboniferousMod.VERSION, dependencies = "required-after:lepidodendron@[59.0,)")
+@Mod(modid = PNCarboniferousMod.MODID, name = PNCarboniferousMod.NAME, version = PNCarboniferousMod.VERSION, dependencies = "required-after:lepidodendron@[60.0,)")
 public class PNCarboniferousMod {
     public static final String MODID = "pncarboniferous";
     public static final String NAME = "Prehistoric Nature Carboniferous Dimension";

@@ -9,10 +9,10 @@
     "updateUrl": "",
     "authorList": ["Aecht_Rob"],
     "credits": "Prehistoric Nature",
-    "dependencies": ["lepidodendron@[59.0,)","jeid@[2.0.6,)"],
+    "dependencies": ["lepidodendron@[60.0,)"],
     "logoFile": "",
     "screenshots": [],
-    "requiredMods": ["lepidodendron@[59.0,)","jeid@[2.0.6,)"],
+    "requiredMods": ["lepidodendron@[60.0,)"],
     "useDependencyInformation": "true"
   }
 ]
