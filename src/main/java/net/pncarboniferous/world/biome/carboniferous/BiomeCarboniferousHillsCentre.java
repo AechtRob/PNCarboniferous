@@ -37,10 +37,8 @@ public class BiomeCarboniferousHillsCentre extends ElementsLepidodendronMod.ModE
 	@Override
 	public void init(FMLInitializationEvent event) {
 		//BiomeDictionary.addTypes(biome, BiomeDictionary.Type.SWAMP);
-		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.JUNGLE);
-		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.DENSE);
+		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.MOUNTAIN);
 		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.HILLS);
-		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.LUSH);
 	}
 
 	static class BiomeGenCustom extends BiomeCarboniferous {

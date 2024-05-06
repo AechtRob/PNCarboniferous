@@ -34,6 +34,7 @@ public class BiomeCarboniferousVolcanicTarns extends ElementsPNCarboniferousMod.
 	public void init(FMLInitializationEvent event) {
 		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.PLAINS);
 		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.COLD);
+		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.FOREST);
 	}
 
 	static class BiomeGenCustom extends BiomeCarboniferous {
