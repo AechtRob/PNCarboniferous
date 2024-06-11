@@ -647,7 +647,7 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
                                     if (biome == BiomeCarboniferousOcean.biome || biome == BiomeCarboniferousOceanShore.biome  || biome == BiomeCarboniferousOceanCliff.biome || biome == BiomeCarboniferousBeach.biome || biome == BiomeCarboniferousBay.biome) {
                                         chunkPrimerIn.setBlockState(i1, j1, l, BlockCoarseSandyDirt.block.getDefaultState());
                                     }
-                                    if (biome == BiomeCarboniferousVolcanicTarnsCrater.biome || biome == BiomeCarboniferousVolcanicTarnsCraterWater.biome) {
+                                    else if (biome == BiomeCarboniferousVolcanicTarnsCrater.biome || biome == BiomeCarboniferousVolcanicTarnsCraterWater.biome) {
                                         chunkPrimerIn.setBlockState(i1, j1, l, BlockCoarseSandyDirtBlack.block.getDefaultState());
                                         if (rand.nextInt(3) == 0) {
                                             chunkPrimerIn.setBlockState(i1, j1, l, BlockSandBlackWavy.block.getDefaultState());
