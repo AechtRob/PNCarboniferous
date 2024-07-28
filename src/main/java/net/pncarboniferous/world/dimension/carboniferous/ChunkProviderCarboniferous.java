@@ -136,31 +136,34 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
         long l = this.random.nextLong() / 2 * 2 + 1;
         this.random.setSeed((long) x * k + (long) z * l ^ this.world.getSeed());
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.random, x, z, false);
-        if (this.random.nextInt(4) == 0 && biome != BiomeCarboniferousMarsh.biome && biome != BiomeCarboniferousIce.biome
-                && biome != BiomeCarboniferousIceLakes.biome && biome != BiomeCarboniferousIceSpikes.biome
-                && biome != BiomeCarboniferousIceEdge.biome && biome != BiomeCarboniferousBeach.biome
-                && biome != BiomeCarboniferousOceanShore.biome && biome != BiomeCarboniferousOceanCliff.biome
-                && biome != BiomeCarboniferousEstuary.biome && biome != BiomeCarboniferousVolcanicTarnsCrater.biome
-                && biome != BiomeCarboniferousVolcanicTarns.biome && biome != BiomeCarboniferousVolcanicTarnsCraterWater.biome
-                && biome != BiomeCarboniferousBay.biome)
-            if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
-                    net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
-                int i1 = this.random.nextInt(16) + 8;
-                int j1 = this.random.nextInt(256);
-                int k1 = this.random.nextInt(16) + 8;
-                (new WorldGenCarboniferousLakes(FLUID.getBlock())).generate(this.world, this.random, blockpos.add(i1, j1, k1));
-            }
 
-        if (biome == BiomeCarboniferousEstuary.biome) //Many extra lakes in the estuary
-            if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
-                    net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
-                for (int lake = 0; lake < 12; ++lake) {
+        if (biome instanceof BiomeCarboniferous) {
+            if (this.random.nextInt(4) == 0 && biome != BiomeCarboniferousMarsh.biome && biome != BiomeCarboniferousIce.biome
+                    && biome != BiomeCarboniferousIceLakes.biome && biome != BiomeCarboniferousIceSpikes.biome
+                    && biome != BiomeCarboniferousIceEdge.biome && biome != BiomeCarboniferousBeach.biome
+                    && biome != BiomeCarboniferousOceanShore.biome && biome != BiomeCarboniferousOceanCliff.biome
+                    && biome != BiomeCarboniferousEstuary.biome && biome != BiomeCarboniferousVolcanicTarnsCrater.biome
+                    && biome != BiomeCarboniferousVolcanicTarns.biome && biome != BiomeCarboniferousVolcanicTarnsCraterWater.biome
+                    && biome != BiomeCarboniferousBay.biome)
+                if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
+                        net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
                     int i1 = this.random.nextInt(16) + 8;
                     int j1 = this.random.nextInt(256);
                     int k1 = this.random.nextInt(16) + 8;
-                    (new WorldGenCarboniferousLakesFlat(FLUID.getBlock())).generate(this.world, this.random, blockpos.add(i1, j1, k1));
+                    (new WorldGenCarboniferousLakes(FLUID.getBlock())).generate(this.world, this.random, blockpos.add(i1, j1, k1));
                 }
-            }
+
+            if (biome == BiomeCarboniferousEstuary.biome) //Many extra lakes in the estuary
+                if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
+                        net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
+                    for (int lake = 0; lake < 12; ++lake) {
+                        int i1 = this.random.nextInt(16) + 8;
+                        int j1 = this.random.nextInt(256);
+                        int k1 = this.random.nextInt(16) + 8;
+                        (new WorldGenCarboniferousLakesFlat(FLUID.getBlock())).generate(this.world, this.random, blockpos.add(i1, j1, k1));
+                    }
+                }
+        }
 
         net.minecraftforge.common.MinecraftForge.EVENT_BUS
                 .post(new net.minecraftforge.event.terraingen.DecorateBiomeEvent.Pre(this.world, this.random, blockpos));
