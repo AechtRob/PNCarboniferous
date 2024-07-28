@@ -1,6 +1,8 @@
 package net.pncarboniferous.world.dimension.carboniferous;
 
 import com.google.common.collect.Lists;
+import net.lepidodendron.world.biome.carboniferous.BiomeCarboniferous;
+import net.lepidodendron.world.biome.devonian.BiomeDevonian;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.crash.CrashReportCategory;
 import net.minecraft.util.ReportedException;
@@ -171,6 +173,9 @@ public class BiomeProviderCarboniferous extends BiomeProvider {
                 Biome biome = Biome.getBiome(aint[k1]);
 
                 if (!allowed.contains(biome)) {
+                    return false;
+                }
+                if (!(biome instanceof BiomeCarboniferous)) {
                     return false;
                 }
             }
