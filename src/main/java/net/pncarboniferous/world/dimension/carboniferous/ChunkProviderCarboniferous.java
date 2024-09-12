@@ -745,4 +745,24 @@ public class ChunkProviderCarboniferous implements IChunkGenerator {
             }
         }
     }
+
+    public static IBlockState getIBlockstateForWater(Biome biome, int posY, IBlockState iblockstate, Random rand) {
+
+//        if (biome == BiomeEarlyCretaceousLandSouthAmericanFlats.biome
+//                || biome == BiomeEarlyCretaceousCreekSouthAmericanFlatsStream.biome
+//                || biome == BiomeEarlyCretaceousCreekSouthAmericanFlats.biome) {
+//            int i = rand.nextInt(100) + 1;
+//            if (i >= 25) {
+//                iblockstate = BlockCarboniferousMud.block.getDefaultState();
+//            }
+//            else if (i >= 2) {
+//                iblockstate = BlockCoarseSandyDirtBlack.block.getDefaultState();
+//            }
+//            else {
+//                iblockstate = BlockCoarseSiltyDirt.block.getDefaultState();
+//            }
+//        }
+
+        return iblockstate;
+    }
 }
