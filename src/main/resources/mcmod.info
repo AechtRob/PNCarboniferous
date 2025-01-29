@@ -3,16 +3,16 @@
     "modid": "pncarboniferous",
     "name": "Prehistoric Nature Carboniferous",
     "description": "Adds the Prehistoric Nature Carboniferous dimension",
-    "version": "4.02",
+    "version": "5.0",
     "mcversion": "1.12.2",
     "url": "",
     "updateUrl": "",
     "authorList": ["Aecht_Rob"],
     "credits": "Prehistoric Nature",
-    "dependencies": ["lepidodendron@[61.0,)"],
+    "dependencies": ["lepidodendron@[62.0,)","jeid@[2.0.6,)"],
     "logoFile": "",
     "screenshots": [],
-    "requiredMods": ["lepidodendron@[61.0,)"],
+    "requiredMods": ["lepidodendron@[62.0,)","jeid@[2.0.6,)"],
     "useDependencyInformation": "true"
   }
 ]

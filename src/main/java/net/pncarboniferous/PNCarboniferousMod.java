@@ -24,11 +24,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.function.Supplier;
 
-@Mod(modid = PNCarboniferousMod.MODID, name = PNCarboniferousMod.NAME, version = PNCarboniferousMod.VERSION, dependencies = "required-after:lepidodendron@[61.0,)")
+@Mod(modid = PNCarboniferousMod.MODID, name = PNCarboniferousMod.NAME, version = PNCarboniferousMod.VERSION, dependencies = "required-after:lepidodendron@[62.0,)")
 public class PNCarboniferousMod {
     public static final String MODID = "pncarboniferous";
     public static final String NAME = "Prehistoric Nature Carboniferous Dimension";
-    public static final String VERSION = "4.02";
+    public static final String VERSION = "5.0";
     public static final SimpleNetworkWrapper PACKET_HANDLER = NetworkRegistry.INSTANCE.newSimpleChannel("pncarboniferous:a");
     @SidedProxy(clientSide = "net.pncarboniferous.ClientProxyPNCarboniferousMod", serverSide = "net.pncarboniferous.ServerProxyPNCarboniferousMod")
     public static IProxyPNCarboniferousMod proxy;

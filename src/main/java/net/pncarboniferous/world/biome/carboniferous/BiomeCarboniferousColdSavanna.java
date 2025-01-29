@@ -1,10 +1,7 @@
 
 package net.pncarboniferous.world.biome.carboniferous;
 
-import net.lepidodendron.block.BlockBotrychiopsis;
-import net.lepidodendron.block.BlockPrehistoricGroundBasic;
-import net.lepidodendron.block.BlockSphenopterisSeed;
-import net.lepidodendron.block.BlockStauropteris;
+import net.lepidodendron.block.*;
 import net.lepidodendron.procedure.ProcedureWorldGenPitys;
 import net.lepidodendron.util.EnumBiomeTypeCarboniferous;
 import net.lepidodendron.world.biome.carboniferous.BiomeCarboniferous;
@@ -183,6 +180,15 @@ public class BiomeCarboniferousColdSavanna extends ElementsPNCarboniferousMod.Mo
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 192; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					PLANT_GENERATOR.generate(BlockPorongodendron.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 32; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
