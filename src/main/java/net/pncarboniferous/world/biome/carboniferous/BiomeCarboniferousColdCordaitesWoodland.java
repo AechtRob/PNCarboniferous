@@ -62,6 +62,7 @@ public class BiomeCarboniferousColdCordaitesWoodland extends ElementsPNCarbonife
 		protected static final WorldGenCordaitesTree CORDAITES_TREE = new WorldGenCordaitesTree(false);
 		protected static final WorldGenCordaites CORDAITES = new WorldGenCordaites(false);
 		protected static final WorldGenCordaitesDry CORDAITES_DRY = new WorldGenCordaitesDry(false);
+		protected static final WorldGenLeptophloeumTree LEPTOPHLOEUM_TREE = new WorldGenLeptophloeumTree(false);
 
 		//protected static final WorldGenRufloria RUFLORIA_GENERATOR = new WorldGenRufloria();
 //		protected static final WorldGenStauropteris STAUROPTERIS_GENERATOR = new WorldGenStauropteris();
@@ -93,6 +94,9 @@ public class BiomeCarboniferousColdCordaitesWoodland extends ElementsPNCarbonife
 	    {
 			if (rand.nextInt(8) == 0) {
 				return NULL_TREE;
+			}
+			if (rand.nextInt(10) == 0) {
+				return LEPTOPHLOEUM_TREE;
 			}
 			if (rand.nextInt(2) == 0) {
 				return CORDAITES_DRY;
@@ -283,6 +287,15 @@ public class BiomeCarboniferousColdCordaitesWoodland extends ElementsPNCarbonife
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					PLANT_GENERATOR.generate(BlockSphenophyllales2.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 8; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					PLANT_GENERATOR.generate(BlockColpodexylon.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
