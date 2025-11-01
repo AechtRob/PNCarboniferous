@@ -130,6 +130,19 @@ public class BiomeCarboniferousSwamp extends ElementsLepidodendronMod.ModElement
 		protected static final WorldGenSlimyAlgae SLIMY_GENERATOR = new WorldGenSlimyAlgae();
 		protected static final WorldGenPeat PEAT_GENERATOR = new WorldGenPeat();
 //		protected static final WorldGenCecropsis CECROPSIS_GENERATOR = new WorldGenCecropsis();
+protected static final WorldGenSingleStaticInWaterUpwards STATIC_GENERATOR = new WorldGenSingleStaticInWaterUpwards();
+		protected static final WorldGenSingleStaticInWaterRotational STATIC_ROTATIONAL_GENERATOR = new WorldGenSingleStaticInWaterRotational();
+		protected static final WorldGenSingleStaticInWaterSideways STATIC_SIDEWAYS_GENERATOR = new WorldGenSingleStaticInWaterSideways();
+		protected static final WorldGenSingleAnemoneSea ANEMONE_GENERATOR = new WorldGenSingleAnemoneSea();
+		protected static final WorldGenSingleSponge SPONGE_GENERATOR = new WorldGenSingleSponge();
+		protected static final WorldGenSingleSpongeSideways SPONGE_SIDEWAYS_GENERATOR = new WorldGenSingleSpongeSideways();
+		protected static final WorldGenSingleBlastoid BLASTOID_GENERATOR = new WorldGenSingleBlastoid();
+		protected static final WorldGenSingleBlastoidSideways BLASTOID_SIDEWAYS_GENERATOR = new WorldGenSingleBlastoidSideways();
+		protected static final WorldGenSingleFenestella FENESTELLA_GENERATOR = new WorldGenSingleFenestella();
+		protected static final WorldGenSingleFenestellaSideways FENESTELLA_SIDEWAYS_GENERATOR = new WorldGenSingleFenestellaSideways();
+		protected static final WorldGenSingleRugoseCoral RUGOSA_GENERATOR = new WorldGenSingleRugoseCoral();
+		protected static final WorldGenSingleRugoseCoralSideways RUGOSA_SIDEWAYS_GENERATOR = new WorldGenSingleRugoseCoralSideways();
+		protected static final WorldGenSingleTabulateCoral TABULATE_GENERATOR = new WorldGenSingleTabulateCoral();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
