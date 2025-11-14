@@ -7,6 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
+import net.pncarboniferous.world.biome.carboniferous.BiomeCarboniferousColdCordaitesWoodland;
 
 public class GenLayerCarboniferousRiverMix  extends GenLayer
 {
@@ -30,6 +31,8 @@ public class GenLayerCarboniferousRiverMix  extends GenLayer
     public int CARBONIFEROUS_CREEK_SAVANNA_ID =  Biome.getIdForBiome(CARBONIFEROUS_CREEK_SAVANNA);
     public Biome CARBONIFEROUS_CREEK_FEN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_creek_fen"));
     public int CARBONIFEROUS_CREEK_FEN_ID =  Biome.getIdForBiome(CARBONIFEROUS_CREEK_FEN);
+    public Biome CARBONIFEROUS_CREEK_FOREST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_creek_cold_woodland"));
+    public int CARBONIFEROUS_CREEK_FOREST_ID =  Biome.getIdForBiome(CARBONIFEROUS_CREEK_FOREST);
 
     //Biomes to exclude for rivers:
     public Biome CARBONIFEROUS_OCEAN_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:carboniferous_ocean_shore"));
@@ -110,7 +113,12 @@ public class GenLayerCarboniferousRiverMix  extends GenLayer
                             aint2[i] = CARBONIFEROUS_CREEK_ESTUARY_ID;
                         }
                         else if (biomeCarboniferous.getBiomeType() == EnumBiomeTypeCarboniferous.Savanna) {
-                            aint2[i] = CARBONIFEROUS_CREEK_SAVANNA_ID;
+                            if (biome == BiomeCarboniferousColdCordaitesWoodland.biome) {
+                                aint2[i] = CARBONIFEROUS_CREEK_FOREST_ID;
+                            }
+                            else {
+                                aint2[i] = CARBONIFEROUS_CREEK_SAVANNA_ID;
+                            }
                         }
                         else if (biomeCarboniferous.getBiomeType() == EnumBiomeTypeCarboniferous.Fen) {
                             aint2[i] = CARBONIFEROUS_CREEK_FEN_ID;
